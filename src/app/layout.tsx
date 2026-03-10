@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Footer, Layout, Navbar } from 'nextra-theme-docs'
+import { Layout } from 'nextra-theme-docs'
 import { Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 import '@/styles/globals.css'
 import Providers from '@/providers/Providers'
+import TopNavbar from '@/components/layout/TopNavbar'
 
 export const metadata: Metadata = {
   title: {
@@ -15,22 +16,40 @@ export const metadata: Metadata = {
     'BE/FE/DevOps 전반을 다루는 개인 웹개발 단권화 핸드북. React, TypeScript, Spring, Docker, 아키텍처 패턴까지.',
 }
 
-const navbar = (
-  <Navbar
-    logo={
-      <span style={{ fontWeight: 700, fontSize: '1.1rem' }}>
-        Fullstack Web Handbook
-      </span>
-    }
-  />
-)
+const navbar = <TopNavbar />
 
 const footer = (
-  <Footer>
-    <span>
-      {new Date().getFullYear()} © Fullstack Web Handbook
-    </span>
-  </Footer>
+  <footer className="fsw-footer">
+    <div className="fsw-footer-inner">
+      <div className="fsw-footer-left">
+        <div className="fsw-footer-logo">
+          <span className="fsw-footer-logo-mark">W</span>
+          <span className="fsw-footer-logo-text">Fullstack Web Handbook</span>
+        </div>
+        <p className="fsw-footer-tagline">
+          실무를 지탱하는 탄탄한 지식의 기록장
+        </p>
+      </div>
+
+      <div className="fsw-footer-right">
+        <nav className="fsw-footer-links" aria-label="Footer">
+          <a
+            href="https://github.com/your-username/fullstack-web-handbook"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Github
+          </a>
+          <a href="/about">Documentation</a>
+          <a href="/about">About Me</a>
+        </nav>
+        <p className="fsw-footer-meta">
+          {new Date().getFullYear()} © Fullstack Web Handbook. Built with Love
+          &amp; Next.js 15.
+        </p>
+      </div>
+    </div>
+  </footer>
 )
 
 export default async function RootLayout({
