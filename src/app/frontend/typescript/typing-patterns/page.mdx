@@ -1,0 +1,38 @@
+# TypeScript 타입 패턴
+
+## 1. 왜 필요한가
+
+any 남발 없이 타입 안전성을 높이는 실용적인 패턴들입니다.
+
+## 2. 핵심 개념 요약
+
+- **유틸리티 타입**: `Partial`, `Required`, `Pick`, `Omit`, `Record`
+- **템플릿 리터럴 타입**: 동적 키 타입 생성
+- **Discriminated Union**: 타입 가드와 함께 사용
+- **Infer**: 조건부 타입에서 타입 추출
+
+## 3. 코드 예시
+
+```ts
+// Discriminated Union
+type ApiResponse<T> =
+  | { status: 'success'; data: T }
+  | { status: 'error'; message: string }
+  | { status: 'loading' }
+
+function handleResponse<T>(res: ApiResponse<T>) {
+  if (res.status === 'success') {
+    console.log(res.data) // T 타입으로 추론됨
+  }
+}
+```
+
+## 4. 실무 팁
+
+- API 응답 타입은 Zod로 런타임 검증 + TypeScript 타입 자동 추론
+- `as const`로 literal 타입 좁히기
+
+## 5. 참고 링크
+
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/)
+- [Total TypeScript](https://www.totaltypescript.com/)

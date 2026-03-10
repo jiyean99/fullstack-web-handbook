@@ -1,0 +1,47 @@
+# CI/CD
+
+## 1. 왜 필요한가
+
+수동 배포의 실수를 자동화로 줄이고 빠른 피드백을 얻습니다.
+
+## 2. 핵심 개념 요약
+
+- **CI (Continuous Integration)**: 코드 푸시 시 자동 빌드/테스트
+- **CD (Continuous Deployment)**: 테스트 통과 시 자동 배포
+- **GitHub Actions**: YAML 기반 워크플로우 정의
+
+## 3. 코드 예시
+
+```yaml
+# .github/workflows/ci.yml
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+```
+
+## 4. 실무 팁
+
+- PR에서 Preview 배포(Vercel/Netlify) 연동
+- 환경변수는 GitHub Secrets로 관리
+
+## 5. 참고 링크
+
+- [GitHub Actions 공식 문서](https://docs.github.com/en/actions)

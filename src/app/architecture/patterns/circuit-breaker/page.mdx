@@ -1,0 +1,34 @@
+# Circuit Breaker 패턴
+
+## 1. 왜 필요한가
+
+외부 서비스 장애가 전체 시스템으로 전파되는 것을 방지합니다.
+
+## 2. 핵심 개념 요약
+
+- **Closed**: 정상 동작, 요청 통과
+- **Open**: 실패 임계치 초과, 즉시 실패 반환
+- **Half-Open**: 일부 요청으로 복구 확인
+
+## 3. 코드 예시
+
+```java
+// Resilience4j 사용
+@CircuitBreaker(name = "paymentService", fallbackMethod = "fallback")
+public PaymentResult processPayment(PaymentRequest request) {
+  return paymentClient.process(request);
+}
+
+private PaymentResult fallback(PaymentRequest request, Exception ex) {
+  return PaymentResult.deferred(request.getOrderId());
+}
+```
+
+## 4. 실무 팁
+
+- Fallback은 항상 구현 (캐시 데이터, 기본값 등)
+- Resilience4j > Hystrix (Hystrix는 maintenance 모드)
+
+## 5. 참고 링크
+
+- [Resilience4j 공식 문서](https://resilience4j.readme.io/)

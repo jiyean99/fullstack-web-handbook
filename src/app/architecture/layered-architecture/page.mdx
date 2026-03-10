@@ -1,0 +1,29 @@
+# 레이어드 아키텍처 (Layered Architecture)
+
+## 1. 왜 필요한가
+
+관심사 분리(Separation of Concerns)로 유지보수성을 높입니다.
+
+## 2. 핵심 개념 요약
+
+```
+Presentation Layer  (Controller, View)
+    ↓
+Business Layer      (Service, Domain)
+    ↓
+Data Access Layer   (Repository, Mapper)
+    ↓
+Database
+```
+
+- 각 계층은 바로 아래 계층에만 의존
+- 상위 계층에 하위 계층 구현체 노출 금지
+
+## 3. 실무 팁
+
+- Service에서 직접 HTTP 관련 코드 작성 금지
+- Controller에서 비즈니스 로직 구현 금지
+
+## 5. 참고 링크
+
+- [Patterns of Enterprise Application Architecture](https://martinfowler.com/books/eaa.html)

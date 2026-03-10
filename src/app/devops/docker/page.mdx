@@ -1,0 +1,43 @@
+# Docker
+
+## 1. 왜 필요한가
+
+"내 로컬에서는 되는데" 문제를 컨테이너로 해결합니다.
+
+## 2. 핵심 개념 요약
+
+- **이미지(Image)**: 불변 실행 환경 스냅샷
+- **컨테이너(Container)**: 이미지의 실행 인스턴스
+- **Dockerfile**: 이미지 빌드 명세서
+- **Docker Compose**: 멀티 컨테이너 오케스트레이션
+
+## 3. 코드 예시
+
+```dockerfile
+# 멀티 스테이지 빌드 (Next.js)
+FROM node:20-alpine AS deps
+WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN npm i -g pnpm && pnpm install --frozen-lockfile
+
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN pnpm build
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+COPY --from=builder /app/.next/standalone ./
+EXPOSE 3000
+CMD ["node", "server.js"]
+```
+
+## 4. 실무 팁
+
+- `.dockerignore`로 `node_modules`, `.next` 제외
+- 멀티 스테이지 빌드로 이미지 크기 최소화
+
+## 5. 참고 링크
+
+- [Docker 공식 문서](https://docs.docker.com/)
