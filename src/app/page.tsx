@@ -2,6 +2,15 @@
 
 import styled, { keyframes } from 'styled-components'
 import Link from 'next/link'
+import {
+  Layout as LayoutIcon,
+  Server,
+  Layers,
+  Gamepad2,
+  Info,
+  ArrowRight,
+} from 'lucide-react'
+import { DiDocker } from 'react-icons/di'
 
 // ─── Animations ───────────────────────────────────
 const fadeUp = keyframes`
@@ -113,9 +122,18 @@ const CardHeader = styled.div`
   margin-bottom: 0.75rem;
 `
 
-const CardIcon = styled.span`
+const CardIcon = styled.div<{ $accent: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ $accent }) => $accent};
   font-size: 1.5rem;
   line-height: 1;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 `
 
 const CardTitle = styled.span`
@@ -135,11 +153,14 @@ const CardLinks = styled.ul`
 const CardLinkItem = styled.li`
   font-size: 0.82rem;
   color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 
-  &::before {
-    content: '→ ';
+  svg {
+    width: 12px;
+    height: 12px;
     color: var(--color-primary);
-    font-weight: 600;
   }
 `
 
@@ -177,42 +198,42 @@ const StackBadge = styled.span`
 // ─── Data ─────────────────────────────────────────
 const sections = [
   {
-    icon: '📱',
+    icon: <LayoutIcon />,
     title: 'Frontend',
     href: '/frontend',
     accent: 'var(--color-primary)',
     links: ['React & 상태관리', 'TypeScript 패턴', 'styled-components'],
   },
   {
-    icon: '🖥',
+    icon: <Server />,
     title: 'Backend',
     href: '/backend',
     accent: 'var(--color-success)',
     links: ['HTTP / REST', 'Spring Boot', 'JPA & 테스트'],
   },
   {
-    icon: '🐳',
+    icon: <DiDocker />,
     title: 'DevOps & Infra',
     href: '/devops',
     accent: 'var(--color-docker-blue)',
     links: ['Docker & 네트워크', 'CI/CD', 'AWS'],
   },
   {
-    icon: '🏗',
+    icon: <Layers />,
     title: 'Architecture',
     href: '/architecture',
     accent: 'var(--color-docker-network)',
     links: ['레이어드 아키텍처', 'Hexagonal', '에러 핸들링 패턴'],
   },
   {
-    icon: '🎮',
+    icon: <Gamepad2 />,
     title: 'Playgrounds',
     href: '/playgrounds',
     accent: 'var(--color-docker-container)',
     links: ['상태관리 데모', '디자인 시스템 쇼케이스'],
   },
   {
-    icon: 'ℹ️',
+    icon: <Info />,
     title: 'About',
     href: '/about',
     accent: 'var(--color-gray-400)',
@@ -248,10 +269,12 @@ export default function OverviewPage() {
         </HeroDesc>
         <HeroActions>
           <HeroBtn href="/frontend" $primary>
-            Frontend 시작 →
+            Frontend 시작 <ArrowRight size={18} />
           </HeroBtn>
           <HeroBtn href="/devops">DevOps 보기</HeroBtn>
-          <HeroBtn href="/playgrounds">🎮 Playgrounds</HeroBtn>
+          <HeroBtn href="/playgrounds">
+            <Gamepad2 size={18} style={{ marginRight: '0.2em' }} /> Playgrounds
+          </HeroBtn>
         </HeroActions>
       </HeroSection>
 
@@ -264,12 +287,15 @@ export default function OverviewPage() {
             style={{ animationDelay: `${i * 0.07}s` }}
           >
             <CardHeader>
-              <CardIcon>{s.icon}</CardIcon>
+              <CardIcon $accent={s.accent}>{s.icon}</CardIcon>
               <CardTitle>{s.title}</CardTitle>
             </CardHeader>
             <CardLinks>
               {s.links.map((l) => (
-                <CardLinkItem key={l}>{l}</CardLinkItem>
+                <CardLinkItem key={l}>
+                  <ArrowRight />
+                  {l}
+                </CardLinkItem>
               ))}
             </CardLinks>
           </CardWrapper>

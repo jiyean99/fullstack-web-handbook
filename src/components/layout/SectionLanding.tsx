@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
@@ -10,7 +11,7 @@ export interface TopicLink {
 }
 
 export interface SubCard {
-  icon: string
+  icon: React.ReactNode
   title: string
   href: string
   desc: string
@@ -20,7 +21,7 @@ export interface SubCard {
 
 export interface SectionLandingProps {
   badge: string
-  icon: string
+  icon: React.ReactNode
   title: string
   description: string
   accentColor: string
@@ -85,6 +86,9 @@ const Badge = styled.span<{ $color: string }>`
 `
 
 const BadgeIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.1em;
 `
 
@@ -137,6 +141,9 @@ const CardHeader = styled.div`
 `
 
 const CardIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.6rem;
   line-height: 1;
 `

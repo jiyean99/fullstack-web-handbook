@@ -2,6 +2,7 @@
 
 import styled from 'styled-components'
 import Link from 'next/link'
+import { RefreshCw, Palette, Gamepad2, ArrowRight } from 'lucide-react'
 
 const PageWrapper = styled.div`
   max-width: 760px;
@@ -10,6 +11,9 @@ const PageWrapper = styled.div`
 `
 
 const PageTitle = styled.h1`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.875rem;
   font-weight: 800;
   color: var(--color-text);
@@ -45,12 +49,18 @@ const PlayCard = styled(Link)<{ $accent: string }>`
   &:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
+    border-color: ${({ $accent }) => $accent};
   }
 `
 
-const CardIcon = styled.div`
-  font-size: 2rem;
+const CardIcon = styled.div<{ $accent: string }>`
+  color: ${({ $accent }) => $accent};
   margin-bottom: var(--sp-3);
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
 `
 
 const CardTitle = styled.div`
@@ -69,6 +79,9 @@ const CardDesc = styled.div`
 `
 
 const CardCta = styled.span<{ $accent: string }>`
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 0.85rem;
   font-weight: 600;
   color: ${({ $accent }) => $accent};
@@ -77,14 +90,14 @@ const CardCta = styled.span<{ $accent: string }>`
 const demos = [
   {
     href: '/playgrounds/state-demo',
-    icon: '🔄',
+    icon: <RefreshCw />,
     title: '상태관리 데모',
     desc: 'Zustand로 구현한 카운터와 폼 상태를 직접 조작해보는 인터랙티브 데모.',
     accent: 'var(--color-primary)',
   },
   {
     href: '/playgrounds/design-system-demo',
-    icon: '🎨',
+    icon: <Palette />,
     title: '디자인 시스템 쇼케이스',
     desc: '색상 팔레트, Typography, Button 컴포넌트를 다크/라이트 모드에서 확인.',
     accent: 'var(--color-docker-network)',
@@ -94,7 +107,10 @@ const demos = [
 export default function PlaygroundsPage() {
   return (
     <PageWrapper>
-      <PageTitle>🎮 Playgrounds</PageTitle>
+      <PageTitle>
+        <Gamepad2 size={32} color="var(--color-primary)" />
+        Playgrounds
+      </PageTitle>
       <PageDesc>
         개념을 직접 체험할 수 있는 인터랙티브 데모 공간입니다. 이론 페이지의 데모 링크에서도
         접근할 수 있습니다.
@@ -102,10 +118,12 @@ export default function PlaygroundsPage() {
       <CardGrid>
         {demos.map((d) => (
           <PlayCard key={d.href} href={d.href} $accent={d.accent}>
-            <CardIcon>{d.icon}</CardIcon>
+            <CardIcon $accent={d.accent}>{d.icon}</CardIcon>
             <CardTitle>{d.title}</CardTitle>
             <CardDesc>{d.desc}</CardDesc>
-            <CardCta $accent={d.accent}>데모 보기 →</CardCta>
+            <CardCta $accent={d.accent}>
+              데모 보기 <ArrowRight size={14} />
+            </CardCta>
           </PlayCard>
         ))}
       </CardGrid>

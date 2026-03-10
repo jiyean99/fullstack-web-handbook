@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import styled from 'styled-components'
+import { Info, Lightbulb, AlertTriangle as TriangleAlert } from 'lucide-react'
 
 // ─────────────────────────────────────────────
 // Types
@@ -100,10 +101,10 @@ const SectionDesc = styled.p`
 // ─────────────────────────────────────────────
 // Callout
 // ─────────────────────────────────────────────
-const calloutColors: Record<string, { bg: string; border: string; icon: string }> = {
-  info: { bg: '#eff6ff', border: 'var(--color-primary)', icon: 'ℹ️' },
-  tip: { bg: '#f0fdf4', border: 'var(--color-success)', icon: '💡' },
-  warning: { bg: '#fffbeb', border: 'var(--color-warning)', icon: '⚠️' },
+const calloutColors = {
+  info: { bg: '#eff6ff', border: 'var(--color-primary)', icon: Info },
+  tip: { bg: '#f0fdf4', border: 'var(--color-success)', icon: Lightbulb },
+  warning: { bg: '#fffbeb', border: 'var(--color-warning)', icon: TriangleAlert },
 }
 
 const CalloutBox = styled.div<{ $type: 'info' | 'tip' | 'warning' }>`
@@ -115,6 +116,9 @@ const CalloutBox = styled.div<{ $type: 'info' | 'tip' | 'warning' }>`
   font-size: 0.9rem;
   line-height: 1.7;
   color: var(--color-text);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
 `
 
 function Callout({
@@ -124,10 +128,11 @@ function Callout({
   type: 'info' | 'tip' | 'warning'
   children: React.ReactNode
 }) {
+  const Icon = calloutColors[type].icon
   return (
     <CalloutBox $type={type}>
-      <span style={{ marginRight: '0.4em' }}>{calloutColors[type].icon}</span>
-      {children}
+      <Icon size={18} style={{ marginTop: '0.25em', flexShrink: 0, color: calloutColors[type].border }} />
+      <div>{children}</div>
     </CalloutBox>
   )
 }
