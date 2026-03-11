@@ -12,6 +12,9 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = defineConfig([
+  {
+    ignores: [".next/**", "node_modules/**", "next-env.d.ts"],
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   ...storybook.configs["flat/recommended"],
 ]);
