@@ -8,6 +8,8 @@ import { ArrowLeft, ChevronRight, Hash } from 'lucide-react'
 export interface DetailItem {
   name: string
   desc: string
+  /** 있으면 카드 클릭 시 해당 경로로 이동 */
+  href?: string
 }
 
 export interface DetailSection {
@@ -289,7 +291,7 @@ const DetailGrid = styled.div`
   gap: var(--sp-3);
 `
 
-const DetailCard = styled.div`
+const detailCardStyles = `
   padding: var(--sp-4);
   border-radius: 1.1rem;
   background: var(--color-bg);
@@ -303,6 +305,17 @@ const DetailCard = styled.div`
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
   }
+`
+
+const DetailCard = styled.div`
+  ${detailCardStyles}
+`
+
+const DetailCardLink = styled(Link)`
+  ${detailCardStyles}
+  display: block;
+  text-decoration: none;
+  color: inherit;
 `
 
 const DetailHeader = styled.div`
@@ -471,8 +484,8 @@ export default function SectionDetailLayout({
               </SectionHeader>
 
               <DetailGrid>
-                {section.items.map((item) => (
-                  <DetailCard key={item.name}>
+                {section.items.map((item) => {
+                  const content = (
                     <DetailHeader>
                       <div>
                         <DetailTitle>{item.name}</DetailTitle>
@@ -482,8 +495,15 @@ export default function SectionDetailLayout({
                         <ChevronRight />
                       </DetailChevron>
                     </DetailHeader>
-                  </DetailCard>
-                ))}
+                  )
+                  return item.href ? (
+                    <DetailCardLink key={item.name} href={item.href}>
+                      {content}
+                    </DetailCardLink>
+                  ) : (
+                    <DetailCard key={item.name}>{content}</DetailCard>
+                  )
+                })}
               </DetailGrid>
             </SectionBlock>
           ))}
