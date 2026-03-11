@@ -78,8 +78,11 @@ export default function BackendPage() {
       quickLinksTitle="Quick Links"
       quickLinksIcon={<Server size={16} color="var(--color-primary)" />}
       quickLinks={[
-        { label: 'HTTP / REST 가이드', href: '/backend/http' },
-        { label: 'Spring Boot 가이드', href: '/backend/spring' },
+        { label: 'MDN HTTP 레퍼런스', href: 'https://developer.mozilla.org/en-US/docs/Web/HTTP' },
+        { label: 'Spring Boot 공식 문서', href: 'https://docs.spring.io/spring-boot/docs/current/reference/html/' },
+        { label: 'Spring Data JPA 레퍼런스', href: 'https://docs.spring.io/spring-data/jpa/reference/' },
+        { label: 'RFC 7807 Problem Details', href: 'https://www.rfc-editor.org/rfc/rfc7807' },
+        { label: 'Testcontainers 공식 문서', href: 'https://testcontainers.com/guides/testing-spring-boot-rest-api-using-testcontainers/' },
       ]}
       previous={{ href: '/frontend', label: 'Frontend 개발' }}
       next={{ href: '/devops', label: 'DevOps & Infra' }}

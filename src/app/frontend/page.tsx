@@ -86,12 +86,11 @@ export default function FrontendPage() {
       quickLinksTitle="Quick Links"
       quickLinksIcon={<Layout size={16} color="var(--color-primary)" />}
       quickLinks={[
-        { label: 'React 가이드', href: '/frontend/react' },
-        { label: 'TypeScript 가이드', href: '/frontend/typescript' },
-        {
-          label: 'Styling 가이드',
-          href: '/frontend/styling/styled-components',
-        },
+        { label: 'React 공식 문서', href: 'https://react.dev' },
+        { label: 'TypeScript 공식 핸드북', href: 'https://www.typescriptlang.org/docs/' },
+        { label: 'styled-components 공식 문서', href: 'https://styled-components.com/docs' },
+        { label: 'Zustand 공식 문서', href: 'https://docs.pmnd.rs/zustand/getting-started/introduction' },
+        { label: 'TanStack Query 공식 문서', href: 'https://tanstack.com/query/latest/docs/framework/react/overview' },
       ]}
       previous={undefined}
       next={{ href: '/backend', label: 'Backend 개발' }}

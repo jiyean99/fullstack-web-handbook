@@ -144,7 +144,7 @@ const QuickLinkItem = styled.li`
   gap: 0.4rem;
 `
 
-const QuickLinkAnchor = styled(Link)`
+const QuickLinkAnchor = styled.a`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -441,7 +441,7 @@ export default function SectionDetailLayout({
             <QuickLinksList>
               {quickLinks.map((q) => (
                 <QuickLinkItem key={q.href}>
-                  <QuickLinkAnchor href={q.href}>
+                  <QuickLinkAnchor href={q.href} target="_blank" rel="noopener noreferrer">
                     {q.label}
                     <ChevronRight />
                   </QuickLinkAnchor>

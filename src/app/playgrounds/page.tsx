@@ -55,11 +55,9 @@ export default function PlaygroundsPage() {
       quickLinksTitle="Quick Links"
       quickLinksIcon={<Gamepad2 size={16} color="var(--color-primary)" />}
       quickLinks={[
-        { label: '상태관리 데모', href: '/playgrounds/state-demo' },
-        {
-          label: '디자인 시스템 쇼케이스',
-          href: '/playgrounds/design-system-demo',
-        },
+        { label: 'Zustand 공식 문서', href: 'https://docs.pmnd.rs/zustand/getting-started/introduction' },
+        { label: 'styled-components 공식 문서', href: 'https://styled-components.com/docs' },
+        { label: 'Storybook 공식 문서', href: 'https://storybook.js.org/docs' },
       ]}
       previous={{ href: '/about', label: 'About' }}
       next={undefined}
