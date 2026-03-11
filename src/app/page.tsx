@@ -9,7 +9,6 @@ import {
   Gamepad2,
   Info,
   ArrowRight,
-  BookOpen,
   Github,
   Palette,
 } from 'lucide-react'

@@ -45,7 +45,7 @@ const DialogImg = styled.img`
   height: auto;
 `
 
-interface ZoomImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {}
+type ZoomImageProps = React.ImgHTMLAttributes<HTMLImageElement>
 
 export default function ZoomImage({ src, alt, ...rest }: ZoomImageProps) {
   const [open, setOpen] = useState(false)

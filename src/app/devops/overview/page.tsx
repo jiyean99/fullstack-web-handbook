@@ -271,28 +271,6 @@ const LinkButton = styled.a`
   }
 `
 
-const Footer = styled.footer`
-  padding-block: var(--sp-10);
-  border-top: 1px solid var(--color-border);
-  text-align: center;
-  margin-top: var(--sp-12);
-`
-
-const FooterText = styled.p`
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  max-width: 520px;
-  margin: 0 auto;
-`
-
-const FooterMeta = styled.p`
-  margin-top: var(--sp-4);
-  font-size: 0.65rem;
-  color: var(--color-gray-300);
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
-`
 
 const Dot = styled.div`
   width: 0.35rem;
