@@ -107,10 +107,10 @@ export default function DevOpsPage() {
       quickLinksTitle="Quick Links"
       quickLinksIcon={<DiDocker size={18} color="var(--color-docker-blue)" />}
       quickLinks={[
-        { label: 'Docker 가이드', href: '/devops/docker' },
-        { label: 'Docker 네트워크', href: '/devops/docker-network' },
-        { label: 'CI/CD 파이프라인', href: '/devops/ci-cd' },
-        { label: 'AWS 인프라', href: '/devops/aws' },
+        { label: 'Docker 공식 문서', href: 'https://docs.docker.com' },
+        { label: 'Docker Compose 레퍼런스', href: 'https://docs.docker.com/compose/' },
+        { label: 'GitHub Actions 공식 문서', href: 'https://docs.github.com/en/actions' },
+        { label: 'AWS 공식 문서', href: 'https://docs.aws.amazon.com' },
       ]}
       previous={{ href: '/backend', label: 'Backend 개발' }}
       next={{ href: '/architecture', label: '아키텍처 & 패턴' }}

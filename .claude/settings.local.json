@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:nextra.site)"
+      "WebFetch(domain:nextra.site)",
+      "Bash(BASE=\"C:/Users/Playdata/Desktop/dev/portfolio/fullstack-web-handbook/.claude/worktrees/brave-lehmann/src/app\")",
+      "Bash(__NEW_LINE_28e545509380e65e__ rm -rf \"$BASE/frontend/react\" \"$BASE/frontend/typescript\" \"$BASE/frontend/styling\" \"$BASE/backend/http\" \"$BASE/backend/spring\" \"$BASE/devops/docker-network\" \"$BASE/architecture/patterns\" \"$BASE/playgrounds/design-system-demo\" \"$BASE/playgrounds/state-demo\")",
+      "Bash(__NEW_LINE_28e545509380e65e__ echo \"done\")"
     ]
   }
 }

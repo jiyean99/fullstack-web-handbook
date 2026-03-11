@@ -105,16 +105,10 @@ export default function ArchitecturePage() {
       quickLinksTitle="Quick Links"
       quickLinksIcon={<Layers size={16} color="var(--color-docker-network)" />}
       quickLinks={[
-        { label: '레이어드 아키텍처', href: '/architecture/layered-architecture' },
-        { label: '헥사고날 아키텍처', href: '/architecture/hexagonal' },
-        {
-          label: '에러 처리 패턴',
-          href: '/architecture/patterns/error-handling',
-        },
-        {
-          label: 'Circuit Breaker',
-          href: '/architecture/patterns/circuit-breaker',
-        },
+        { label: 'Hexagonal Architecture (Cockburn)', href: 'https://alistair.cockburn.us/hexagonal-architecture/' },
+        { label: 'Martin Fowler - Circuit Breaker', href: 'https://martinfowler.com/bliki/CircuitBreaker.html' },
+        { label: 'Resilience4j 공식 문서', href: 'https://resilience4j.readme.io/docs' },
+        { label: 'RFC 7807 Problem Details', href: 'https://www.rfc-editor.org/rfc/rfc7807' },
       ]}
       previous={{ href: '/devops', label: 'DevOps & 인프라' }}
       next={{ href: '/about', label: 'About' }}
