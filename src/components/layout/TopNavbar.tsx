@@ -96,11 +96,11 @@ export default function TopNavbar() {
           </button>
 
           <a
-            href="https://github.com/your-username/fullstack-web-handbook"
+            href="https://github.com/jiyean99"
             target="_blank"
             rel="noreferrer"
             className="fsw-navbar-icon-btn"
-            aria-label="GitHub 저장소 열기"
+            aria-label="GitHub profile"
           >
             <Github className="fsw-navbar-icon" aria-hidden="true" />
           </a>

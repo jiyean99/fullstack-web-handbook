@@ -457,13 +457,21 @@ export default function OverviewPage() {
             미래의 나와 면접관을 위한 실무 중심 정리 공간입니다.
           </HeroDesc>
           <HeroActions>
-            <PrimaryButton href="https://github.com/your-username/fullstack-web-handbook">
+            <PrimaryButton
+              href="https://github.com/jiyean99/fullstack-web-handbook"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Github size={18} />
               Github 레포지토리
               <ArrowRight size={18} />
             </PrimaryButton>
             <SecondaryGroup>
-              <SecondaryButton href="https://storybook.fullstack-web-handbook.example.com">
+              <SecondaryButton
+                href="https://jiyean99.github.io/fullstack-web-handbook/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Palette size={16} />
                 Storybook
               </SecondaryButton>

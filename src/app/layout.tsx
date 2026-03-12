@@ -34,14 +34,13 @@ const footer = (
       <div className="fsw-footer-right">
         <nav className="fsw-footer-links" aria-label="Footer">
           <a
-            href="https://github.com/your-username/fullstack-web-handbook"
+            href="https://github.com/jiyean99/fullstack-web-handbook"
             target="_blank"
             rel="noreferrer"
           >
             Github
           </a>
           <a href="/about">Documentation</a>
-          <a href="/about">About Me</a>
         </nav>
         <p className="fsw-footer-meta">
           {new Date().getFullYear()} © Fullstack Web Handbook. Built with Love
@@ -65,7 +64,7 @@ export default async function RootLayout({
           <Layout
             navbar={navbar}
             pageMap={await getPageMap()}
-            docsRepositoryBase="https://github.com/your-username/fullstack-web-handbook/tree/main"
+            docsRepositoryBase="https://github.com/jiyean99/fullstack-web-handbook/tree/main"
             footer={footer}
             sidebar={{ defaultMenuCollapseLevel: 1 }}
           >
