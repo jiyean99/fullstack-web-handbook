@@ -5,17 +5,14 @@ const config: StorybookConfig = {
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
-  "addons": [
-    "@chromatic-com/storybook",
-    "@storybook/addon-vitest",
+  addons: [
+    '@storybook/addon-vitest',
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
     "@storybook/addon-onboarding"
   ],
   "framework": "@storybook/nextjs-vite",
-  "staticDirs": [
-    "..\\public"
-  ],
+  staticDirs: ['../public'],
   viteFinal: async (config) => {
     config.base = '/fullstack-web-handbook/'
     return config
