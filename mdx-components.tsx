@@ -3,10 +3,11 @@ import { useMDXComponents as useNextraMDXComponents } from 'nextra/mdx-component
 import DevOpsLayout from '@/components/mdx/DevOpsLayout'
 import Callout from '@/components/mdx/Callout'
 import Toggle from '@/components/mdx/Toggle'
+import ZoomImage from '@/components/common/ZoomImage'
 
 /**
  * MDX 컴포넌트를 프로젝트 디자인시스템에 맞게 확장합니다.
- * .fsw-mdx-content 래퍼와 하위 요소들이 globals.css의 .fsw-mdx-* 스타일을 사용합니다.
+ * img → ZoomImage: 모든 이미지 클릭 시 팝업(라이트박스)으로 확대.
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useMDXComponents(components: any) {
@@ -15,6 +16,9 @@ export function useMDXComponents(components: any) {
 
   return {
     ...nextra,
+    img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+      <ZoomImage src={props.src} alt={props.alt} {...props} />
+    ),
     DevOpsLayout,
     Callout,
     Toggle,

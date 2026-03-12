@@ -417,12 +417,19 @@ export default function SectionDetailLayout({
           ? `${readTime} read`
           : undefined
 
+  const effectiveSections = sections
+    .map((section) => ({
+      ...section,
+      items: section.items.filter((item): item is DetailItem & { href: string } => !!item.href),
+    }))
+    .filter((section) => section.items.length > 0)
+
   return (
     <PageWrapper>
       <Sidebar>
         <SidebarSectionTitle>Contents</SidebarSectionTitle>
         <SidebarNav>
-          {sections.map((section) => (
+          {effectiveSections.map((section) => (
             <SidebarNavLink key={section.id} href={`#${section.id}`}>
               <Hash />
               {section.title}
@@ -460,20 +467,10 @@ export default function SectionDetailLayout({
           </HeaderBadge>
           <HeaderTitle>{title}</HeaderTitle>
           <HeaderDesc>{description}</HeaderDesc>
-          {metaText && (
-            <HeaderMetaRow>
-              <AvatarGroup>
-                <Avatar />
-                <Avatar />
-                <Avatar />
-              </AvatarGroup>
-              <MetaText>{metaText}</MetaText>
-            </HeaderMetaRow>
-          )}
         </Header>
 
         <SectionList>
-          {sections.map((section) => (
+          {effectiveSections.map((section) => (
             <SectionBlock key={section.id} id={section.id}>
               <SectionHeader>
                 <SectionIcon $color={section.color}>{section.icon}</SectionIcon>
@@ -484,8 +481,8 @@ export default function SectionDetailLayout({
               </SectionHeader>
 
               <DetailGrid>
-                {section.items.map((item) => {
-                  const content = (
+                {section.items.map((item) => (
+                  <DetailCardLink key={item.name} href={item.href}>
                     <DetailHeader>
                       <div>
                         <DetailTitle>{item.name}</DetailTitle>
@@ -495,15 +492,8 @@ export default function SectionDetailLayout({
                         <ChevronRight />
                       </DetailChevron>
                     </DetailHeader>
-                  )
-                  return item.href ? (
-                    <DetailCardLink key={item.name} href={item.href}>
-                      {content}
-                    </DetailCardLink>
-                  ) : (
-                    <DetailCard key={item.name}>{content}</DetailCard>
-                  )
-                })}
+                  </DetailCardLink>
+                ))}
               </DetailGrid>
             </SectionBlock>
           ))}

@@ -73,16 +73,16 @@ const SidebarNav = styled.nav`
   gap: 0.25rem;
 `
 
-const SidebarButton = styled.button<{ $active: boolean }>`
+const SidebarButton = styled.button`
   width: 100%;
   text-align: left;
   padding: 0.6rem 0.8rem;
   border-radius: var(--radius-lg);
   border: none;
-  background: ${({ $active }) => ($active ? 'var(--color-primary-light)' : 'transparent')};
-  color: ${({ $active }) => ($active ? 'var(--color-primary)' : 'var(--color-text-muted)')};
+  background: transparent;
+  color: var(--color-text-muted);
   font-size: 0.85rem;
-  font-weight: ${({ $active }) => ($active ? 700 : 500)};
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,15 +91,18 @@ const SidebarButton = styled.button<{ $active: boolean }>`
   transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
 
   &:hover {
-    background: ${({ $active }) => ($active ? 'var(--color-primary-light)' : 'var(--color-surface)')};
-    color: ${({ $active }) => ($active ? 'var(--color-primary)' : 'var(--color-text)')};
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+  &:hover > *:last-child {
+    opacity: 1;
   }
 `
 
-const ChevronIcon = styled(ChevronRight) <{ $visible: boolean }>`
+const ChevronIcon = styled(ChevronRight)`
   width: 0.9rem;
   height: 0.9rem;
-  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  opacity: 0;
   transition: opacity 0.12s ease;
 `
 
@@ -382,10 +385,9 @@ const App = () => {
               key={item.id}
               type="button"
               onClick={() => scrollTo(item.id)}
-              $active={activeSection === item.id}
             >
               {item.label}
-              <ChevronIcon $visible={activeSection === item.id} />
+              <ChevronIcon />
             </SidebarButton>
           ))}
         </SidebarNav>
