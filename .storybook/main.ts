@@ -15,6 +15,10 @@ const config: StorybookConfig = {
   "framework": "@storybook/nextjs-vite",
   "staticDirs": [
     "..\\public"
-  ]
+  ],
+  viteFinal: async (config) => {
+    config.base = '/fullstack-web-handbook/'
+    return config
+  },
 };
 export default config;
