@@ -3,7 +3,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Box, ChevronRight, BookOpen } from 'lucide-react'
-import ZoomImage from '@/components/common/ZoomImage'
+import {
+  PackagingInteractiveSvg,
+  IsolationInteractiveSvg,
+  PortabilityInteractiveSvg,
+  CicdInteractiveSvg,
+  K8sInteractiveSvg,
+} from './ContainerDiagrams'
 
 const Shell = styled.div`
   min-height: 100vh;
@@ -173,14 +179,9 @@ const Paragraph = styled.p`
   margin-bottom: var(--sp-5);
 `
 
-const ImageWrap = styled.div`
+const DiagramSlot = styled.div`
   width: 100%;
   margin-bottom: var(--sp-6);
-  border-radius: 1rem;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
-  background: var(--color-bg);
 `
 
 const BulletList = styled.ul`
@@ -278,12 +279,9 @@ export default function ContainerPage() {
             <SectionBadge>1</SectionBadge>
             <SectionTitle>컨테이너 개요: 애플리케이션 패키징 기술의 변화</SectionTitle>
           </SectionTitleRow>
-          <ImageWrap>
-            <ZoomImage
-              src="https://velog.velcdn.com/images/jiyean99/post/22988a34-694a-457b-b991-eae8dc33010b/image.png"
-              alt="애플리케이션 패키징과 배포 방식의 변화"
-            />
-          </ImageWrap>
+          <DiagramSlot>
+            <PackagingInteractiveSvg />
+          </DiagramSlot>
           <Paragraph>
             전통적인 애플리케이션 배포 방식은 물리 서버나 가상 머신 위에 OS, 런타임, 라이브러리를 직접 설치하는 구조였다.
             이 방식은 운영 환경별로 설정이 조금만 달라도 문제가 발생하는{' '}
@@ -303,12 +301,9 @@ export default function ContainerPage() {
             <SectionBadge>2</SectionBadge>
             <SectionTitle>기술적 특징: 프로세스 레벨의 독립성과 격리성</SectionTitle>
           </SectionTitleRow>
-          <ImageWrap>
-            <ZoomImage
-              src="https://velog.velcdn.com/images/jiyean99/post/40c8b8c3-95b5-4410-907e-68c802e9ff0f/image.png"
-              alt="Namespaces와 Cgroups 기반 컨테이너 격리"
-            />
-          </ImageWrap>
+          <DiagramSlot>
+            <IsolationInteractiveSvg />
+          </DiagramSlot>
           <Paragraph>
             컨테이너는 <strong>리눅스 커널의 Namespaces와 Cgroups(Control Groups)</strong> 기능을 바탕으로 프로세스 수준의
             격리를 제공한다. 가상 머신(VM)처럼 완전히 별도의 OS를 부팅하지 않기 때문에 훨씬 가볍고 빠르다. 실제로는 호스트
@@ -348,12 +343,9 @@ export default function ContainerPage() {
             <SectionBadge>3</SectionBadge>
             <SectionTitle>운영 효율성: 컨테이너 이식성(Portability)</SectionTitle>
           </SectionTitleRow>
-          <ImageWrap>
-            <ZoomImage
-              src="https://velog.velcdn.com/images/jiyean99/post/a8725638-0f54-4100-91bf-e29686c77756/image.png"
-              alt="컨테이너 이식성과 멀티 클라우드"
-            />
-          </ImageWrap>
+          <DiagramSlot>
+            <PortabilityInteractiveSvg />
+          </DiagramSlot>
           <Paragraph>
             컨테이너의 핵심 가치는 ‘<strong>어디서나 동일하게 실행된다</strong>’는 이식성이다. 개발자의 로컬 환경에서
             검증된 이미지가 테스트 서버, 스테이징, 그리고 운영 환경에서도 정확히 똑같이 동작한다. 이는 환경 불일치로 인한
@@ -372,12 +364,9 @@ export default function ContainerPage() {
             <SectionBadge>4</SectionBadge>
             <SectionTitle>지속적 자동화: CI/CD 파이프라인 최적화</SectionTitle>
           </SectionTitleRow>
-          <ImageWrap>
-            <ZoomImage
-              src="https://velog.velcdn.com/images/jiyean99/post/bd7608f1-9ae0-4d28-9280-89f4c39b43fe/image.png"
-              alt="CI/CD와 컨테이너 이미지 파이프라인"
-            />
-          </ImageWrap>
+          <DiagramSlot>
+            <CicdInteractiveSvg />
+          </DiagramSlot>
           <Paragraph>
             DevOps의 핵심은 <strong>속도, 안정성, 협업</strong>이다. 이를 뒷받침하는 것이 바로{' '}
             <strong>지속적 통합(CI)</strong>과 <strong>지속적 배포(CD)</strong>다. 컨테이너는 이 CI/CD 프로세스의 완성도를
@@ -411,12 +400,9 @@ export default function ContainerPage() {
             <SectionBadge>5</SectionBadge>
             <SectionTitle>오케스트레이션: Kubernetes를 통한 대규모 자원 관리</SectionTitle>
           </SectionTitleRow>
-          <ImageWrap>
-            <ZoomImage
-              src="https://velog.velcdn.com/images/jiyean99/post/6cea7581-eb6b-4db6-b6f7-f9928b0d3702/image.png"
-              alt="Kubernetes 오케스트레이션"
-            />
-          </ImageWrap>
+          <DiagramSlot>
+            <K8sInteractiveSvg />
+          </DiagramSlot>
           <Paragraph>
             애플리케이션이 수십 개의 컨테이너로 구성되는 MSA 환경에서는, 컨테이너의 배포·확장·복구를 수동으로 관리하기
             어렵다. 이 문제를 해결하는 것이 바로 <strong>Kubernetes(쿠버네티스)</strong>다.
