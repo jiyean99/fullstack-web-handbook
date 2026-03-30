@@ -14,6 +14,7 @@ const sections = [
     summary: 'DevOps 개념과 문화, 실무 파이프라인 개요',
     items: [
       { name: 'DevOps란', desc: '개발과 운영의 협업, 지속적 전달 파이프라인 개요.', href: '/devops/overview' },
+      { name: '네트워크 기초', desc: 'IP 주소 체계와 포트포워딩의 원리.', href: '/devops/network' },
       { name: '[Git] 에코시스템의 중심축', desc: 'Git과 GitHub, 메커니즘과 브랜치 전략까지.', href: '/devops/git' },
       {
         name: '컨테이너와 클라우드 네이티브',
