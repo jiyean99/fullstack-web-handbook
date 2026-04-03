@@ -16,6 +16,7 @@ import {
   ExternalLink,
   Settings,
   AlertTriangle,
+  CheckCircle,
 } from 'lucide-react'
 import ZoomImage from '@/components/common/ZoomImage'
 
@@ -72,14 +73,14 @@ const SidebarNav = styled.nav`
   gap: 0.25rem;
 `
 
-const SidebarButton = styled.button<{ $active?: boolean }>`
+const SidebarButton = styled.button`
   width: 100%;
   text-align: left;
   padding: 0.6rem 0.8rem;
   border-radius: var(--radius-lg);
   border: none;
-  background: ${({ $active }) => ($active ? 'var(--color-surface)' : 'transparent')};
-  color: ${({ $active }) => ($active ? 'var(--color-text)' : 'var(--color-text-muted)')};
+  background: transparent;
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   font-weight: 500;
   display: flex;
@@ -269,9 +270,20 @@ const SmallText = styled.p`
   line-height: 1.6;
 `
 
-const NetworkPage = () => {
-  const [activeSection, setActiveSection] = useState('section1')
+const Badge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+`
 
+const NetworkPage = () => {
   const menuItems = [
     { id: 'section1', label: '1. IP 주소 체계: IPv4와 IPv6' },
     { id: 'section2', label: '2. 공인 IP vs 사설 IP' },
@@ -281,7 +293,6 @@ const NetworkPage = () => {
   ]
 
   const scrollTo = (id: string) => {
-    setActiveSection(id)
     if (typeof document === 'undefined') return
     const element = document.getElementById(id)
     if (element) {
@@ -300,17 +311,15 @@ const NetworkPage = () => {
     <Shell>
       <Sidebar>
         <SidebarHeader>
-          <SidebarTitle>
-            <Network size={18} color="var(--color-primary)" />
-            목차
-          </SidebarTitle>
+          <BookOpen size={20} color="var(--color-primary)" />
+          <SidebarTitle>목차</SidebarTitle>
         </SidebarHeader>
         <SidebarNav>
           {menuItems.map((item) => (
             <SidebarButton
               key={item.id}
+              type="button"
               onClick={() => scrollTo(item.id)}
-              $active={activeSection === item.id}
             >
               {item.label}
               <ChevronIcon />
@@ -321,6 +330,9 @@ const NetworkPage = () => {
 
       <Main>
         <Header>
+          <Badge>
+            <CheckCircle size={12} /> Network Foundation
+          </Badge>
           <Title>IP 주소 체계와 포트포워딩의 원리</Title>
           <HeaderQuote>
             네트워크의 가장 기초가 되는 IP 주소 체계부터, 내 방에 있는 PC를 외부 인터넷망에 연결하기 위한 필수 과정인 포트포워딩까지 상세하게 정리한다.
