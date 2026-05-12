@@ -20,6 +20,13 @@ const StyledImg = styled.img`
   border-radius: 1rem;
 `
 
+const Caption = styled.p`
+  margin-top: var(--sp-2);
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+`
+
 const Overlay = styled.div`
   position: fixed;
   inset: 0;
@@ -45,9 +52,12 @@ const DialogImg = styled.img`
   height: auto;
 `
 
-type ZoomImageProps = React.ImgHTMLAttributes<HTMLImageElement>
+type ZoomImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+  /** 이미지 하단에 표시할 설명 캡션 */
+  caption?: string
+}
 
-export default function ZoomImage({ src, alt, ...rest }: ZoomImageProps) {
+export default function ZoomImage({ src, alt, caption, ...rest }: ZoomImageProps) {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -66,6 +76,7 @@ export default function ZoomImage({ src, alt, ...rest }: ZoomImageProps) {
       <Wrapper type="button" onClick={() => setOpen(true)} aria-label="이미지 확대 보기">
         <StyledImg src={src} alt={alt} {...rest} />
       </Wrapper>
+      {caption && <Caption>{caption}</Caption>}
       {open && (
         <Overlay onClick={() => setOpen(false)}>
           <Dialog onClick={(e) => e.stopPropagation()}>
