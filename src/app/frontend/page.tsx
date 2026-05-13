@@ -17,14 +17,17 @@ const sections = [
       {
         name: '상태관리 전략',
         desc: 'Zustand, TanStack Query를 활용한 전역 상태와 서버 상태 관리 전략을 정리합니다.',
+        href: '/frontend/react#section1',
       },
       {
         name: '성능 최적화',
         desc: 'memo, useMemo, Suspense 등을 이용해 불필요한 렌더링을 줄이는 방법을 다룹니다.',
+        href: '/frontend/react#section4',
       },
       {
         name: '컴포넌트 설계',
         desc: 'Container / Presentational 패턴과 훅 추출 기준 등 재사용 가능한 컴포넌트 구조를 설명합니다.',
+        href: '/frontend/react#section5',
       },
     ],
   },
