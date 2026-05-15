@@ -41,14 +41,17 @@ const sections = [
       {
         name: '타입 패턴',
         desc: 'Partial, Omit, infer, Discriminated Union 등 실무에서 자주 쓰는 타입 패턴을 정리합니다.',
+        href: '/frontend/typescript#section1',
       },
       {
         name: '도메인 타입 모델링',
         desc: '도메인 규칙을 타입에 녹이는 방법과 유효성 검사를 조합하는 전략을 다룹니다.',
+        href: '/frontend/typescript#section3',
       },
       {
         name: '런타임 타입 검증',
         desc: 'Zod를 활용해 API 응답과 폼 입력을 안전하게 검증하는 방법을 설명합니다.',
+        href: '/frontend/typescript#section5',
       },
     ],
   },
