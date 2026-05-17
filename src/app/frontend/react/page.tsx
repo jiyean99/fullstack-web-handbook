@@ -4,7 +4,6 @@ import React from 'react'
 import {
   Boxes,
   Server,
-  Gauge,
   Layers,
   Component,
   CheckCircle,

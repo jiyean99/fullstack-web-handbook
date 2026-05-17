@@ -65,14 +65,17 @@ const sections = [
       {
         name: 'styled-components 패턴',
         desc: 'Theme Provider와 디자인 토큰을 활용해 일관된 스타일 시스템을 구성하는 방법을 다룹니다.',
+        href: '/frontend/styling#section1',
       },
       {
         name: 'CSS 아키텍처',
         desc: '레이어 구조, 유틸리티 클래스, 컴포넌트 기반 스타일링 전략을 정리합니다.',
+        href: '/frontend/styling#section4',
       },
       {
         name: '다크 모드',
         desc: 'CSS 변수와 전역 테마 전환으로 다크/라이트 모드를 구현하는 패턴을 설명합니다.',
+        href: '/frontend/styling#section3',
       },
     ],
   },
