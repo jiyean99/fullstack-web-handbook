@@ -17,18 +17,22 @@ const sections = [
       {
         name: 'HTTP 메서드 의미론',
         desc: 'GET, POST, PUT, DELETE의 올바른 활용법과 멱등성 개념을 정리합니다.',
+        href: '/backend/http-rest#section1',
       },
       {
         name: '상태 코드 체계',
         desc: '2xx, 4xx, 5xx 상태 코드 분류와 실무에서 자주 쓰는 응답 패턴을 정리합니다.',
+        href: '/backend/http-rest#section3',
       },
       {
         name: 'RESTful 리소스 설계',
         desc: '리소스 중심 URI, 계층 구조, 컬렉션/멤버 설계 원칙을 정리합니다.',
+        href: '/backend/http-rest#section4',
       },
       {
         name: 'RFC 7807 에러 형식',
         desc: '표준화된 API 에러 응답 포맷으로 클라이언트-서버 간 계약을 명확히 합니다.',
+        href: '/backend/http-rest#section5',
       },
     ],
   },
@@ -42,22 +46,27 @@ const sections = [
       {
         name: '레이어드 아키텍처',
         desc: 'Controller-Service-Repository 구조와 각 레이어의 책임 분리를 다룹니다.',
+        href: '/backend/spring-boot#section1',
       },
       {
         name: '의존성 주입 (DI)',
         desc: '느슨한 결합을 위한 Bean 관리 전략과 구성 방법을 정리합니다.',
+        href: '/backend/spring-boot#section2',
       },
       {
         name: '트랜잭션 관리',
         desc: '@Transactional의 작동 원리, 전파/격리 수준, 흔한 함정을 정리합니다.',
+        href: '/backend/spring-boot#section3',
       },
       {
         name: 'JPA 데이터 접근',
         desc: '엔티티 매핑, 연관관계 설계, N+1 문제와 QueryDSL 활용 전략을 다룹니다.',
+        href: '/backend/spring-boot#section4',
       },
       {
         name: '테스팅 전략',
         desc: 'Mockito와 Testcontainers로 계층별 테스트를 구성하는 방법을 설명합니다.',
+        href: '/backend/spring-boot#section5',
       },
     ],
   },
