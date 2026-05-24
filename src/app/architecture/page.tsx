@@ -15,14 +15,17 @@ const sections = [
       {
         name: '계층 분리',
         desc: '프레젠테이션, 도메인, 데이터 계층의 책임과 의존 방향을 명확히 정의합니다.',
+        href: '/architecture/layered-hexagonal#section1',
       },
       {
         name: 'Controller 규칙',
         desc: 'Controller에서 비즈니스 로직을 제거하고 단순 입출력 어댑터로 유지하는 전략을 다룹니다.',
+        href: '/architecture/layered-hexagonal#section2',
       },
       {
         name: 'Service 규칙',
         desc: 'Service 레이어에서 HTTP 코드 의존성을 제거하고 순수한 도메인 규칙만 다루는 방법을 설명합니다.',
+        href: '/architecture/layered-hexagonal#section3',
       },
     ],
   },
@@ -36,14 +39,17 @@ const sections = [
       {
         name: '포트와 어댑터',
         desc: 'Inbound/Outbound Port 정의와 Adapter 구현 패턴을 정리합니다.',
+        href: '/architecture/layered-hexagonal#section4',
       },
       {
         name: '도메인 독립성',
         desc: '프레임워크 의존성이 도메인으로 스며들지 않도록 계층을 분리하는 방법을 설명합니다.',
+        href: '/architecture/layered-hexagonal#section5',
       },
       {
         name: '테스트 용이성',
         desc: '포트를 중심으로 도메인을 테스트할 수 있는 구조를 설계합니다.',
+        href: '/architecture/layered-hexagonal#section6',
       },
     ],
   },
@@ -57,14 +63,17 @@ const sections = [
       {
         name: '전역 예외 핸들러',
         desc: '@ControllerAdvice를 활용해 공통 에러 처리 로직을 모듈화합니다.',
+        href: '/architecture/resilience#section1',
       },
       {
         name: 'RFC 7807',
         desc: 'Problem Details 표준을 기반으로 에러 응답을 구조화합니다.',
+        href: '/architecture/resilience#section3',
       },
       {
         name: '도메인별 에러 코드',
         desc: '도메인 경계를 기준으로 에러 코드를 설계하고 문서화하는 전략을 다룹니다.',
+        href: '/architecture/resilience#section2',
       },
     ],
   },
@@ -78,14 +87,17 @@ const sections = [
       {
         name: '상태 전이',
         desc: 'Closed → Open → Half-Open 상태 전이와 임계치 설정 기준을 정리합니다.',
+        href: '/architecture/resilience#section4',
       },
       {
         name: 'Resilience4j 구현',
         desc: 'Resilience4j를 사용해 Spring 환경에서 Circuit Breaker를 구성하는 방법을 다룹니다.',
+        href: '/architecture/resilience#section5',
       },
       {
         name: 'Fallback 전략',
         desc: '부분 장애 상황에서 graceful degradation을 달성하는 Fallback 설계를 설명합니다.',
+        href: '/architecture/resilience#section6',
       },
     ],
   },
