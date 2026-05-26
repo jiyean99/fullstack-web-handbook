@@ -15,10 +15,12 @@ const sections = [
       {
         name: '카운터 & 폼 상태',
         desc: '간단한 카운터와 폼 상태를 통해 Zustand의 기본 사용법을 익힙니다.',
+        href: '/playgrounds/state#section1',
       },
       {
         name: '스토어 구조',
-        desc: 'store 설계와 action 정의, persist 미들웨어 사용 예시를 다룹니다.',
+        desc: 'store 설계와 action 정의, 셀렉터 기반 구독 예시를 다룹니다.',
+        href: '/playgrounds/state#section4',
       },
     ],
   },
@@ -32,10 +34,12 @@ const sections = [
       {
         name: '컬러 & 타이포그래피',
         desc: '디자인 토큰을 기반으로 한 색상 팔레트와 텍스트 스타일을 확인합니다.',
+        href: '/playgrounds/design-system#section1',
       },
       {
         name: 'Button 컴포넌트',
-        desc: '다양한 변형과 상태를 가진 버튼 컴포넌트를 다크/라이트 모드에서 확인합니다.',
+        desc: '다양한 변형과 상태를 가진 버튼 컴포넌트를 인터랙티브 빌더로 조합해 봅니다.',
+        href: '/playgrounds/design-system#section3',
       },
     ],
   },
