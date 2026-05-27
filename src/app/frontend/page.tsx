@@ -89,7 +89,7 @@ export default function FrontendPage() {
       badgeAccent="var(--color-primary)"
       title="Frontend 개발"
       description="React, TypeScript, Styling 등 프론트엔드 개발의 핵심 개념과 실무 패턴을 체계적으로 정리합니다. 각 주제별 코드 예시와 실무 팁을 함께 제공합니다."
-      lastUpdated="2026.03.10"
+      lastUpdated="2026.05.17"
       readTime="10 min"
       sections={sections}
       quickLinksTitle="Quick Links"

@@ -53,7 +53,7 @@ export default function PlaygroundsPage() {
       badgeAccent="var(--color-primary)"
       title="Playgrounds"
       description="개념을 직접 체험할 수 있는 인터랙티브 데모 공간입니다. 이론 페이지의 데모 링크에서도 접근할 수 있습니다."
-      lastUpdated="2026.03.10"
+      lastUpdated="2026.05.26"
       readTime="5 min"
       sections={sections}
       quickLinksTitle="Quick Links"

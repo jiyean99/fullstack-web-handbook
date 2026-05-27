@@ -111,7 +111,7 @@ export default function ArchitecturePage() {
       badgeAccent="var(--color-docker-network)"
       title="아키텍처 & 패턴"
       description="소프트웨어 설계 원칙과 검증된 아키텍처 패턴을 다룹니다. 레이어드 · 헥사고날 아키텍처부터 에러 처리, Circuit Breaker까지 실무 관점에서 정리합니다."
-      lastUpdated="2026.03.10"
+      lastUpdated="2026.05.24"
       readTime="14 min"
       sections={sections}
       quickLinksTitle="Quick Links"

@@ -81,7 +81,7 @@ export default function BackendPage() {
       badgeAccent="var(--color-success)"
       title="Backend 개발"
       description="HTTP/REST API 설계 원칙부터 Spring Boot 실무 패턴, JPA 데이터 접근, 테스팅 전략까지 — 백엔드 개발의 핵심을 체계적으로 정리합니다."
-      lastUpdated="2026.03.10"
+      lastUpdated="2026.05.22"
       readTime="12 min"
       sections={sections}
       quickLinksTitle="Quick Links"
