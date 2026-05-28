@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Globe, Server } from 'lucide-react'
-import { SiSpring } from 'react-icons/si'
+import { SiSpring, SiFastapi } from 'react-icons/si'
 import SectionDetailLayout from '@/components/layout/SectionDetailLayout'
 
 export const metadata: Metadata = { title: 'Backend' }
@@ -70,6 +70,40 @@ const sections = [
       },
     ],
   },
+  {
+    id: 'fastapi',
+    title: 'Python / FastAPI',
+    icon: <SiFastapi />,
+    color: '#009688',
+    summary: '타입 힌트로 검증·문서·직렬화를 한 번에 해결하는 비동기 프레임워크',
+    items: [
+      {
+        name: '경로 동작과 타입 힌트',
+        desc: '경로 변수·쿼리·본문을 타입 힌트만으로 구분하고 검증하는 방법을 정리합니다.',
+        href: '/backend/fastapi#section2',
+      },
+      {
+        name: 'Pydantic 모델 검증',
+        desc: '요청·응답 스키마를 Pydantic 모델로 정의해 검증과 직렬화를 통합하는 전략을 다룹니다.',
+        href: '/backend/fastapi#section3',
+      },
+      {
+        name: '의존성 주입 (Depends)',
+        desc: 'Depends로 DB 세션·인증 사용자 등을 주입하고 정리하는 패턴을 설명합니다.',
+        href: '/backend/fastapi#section4',
+      },
+      {
+        name: '동기 vs 비동기',
+        desc: 'async def와 def의 선택 기준, 이벤트 루프를 막는 흔한 실수를 정리합니다.',
+        href: '/backend/fastapi#section5',
+      },
+      {
+        name: '테스트 전략',
+        desc: 'TestClient와 의존성 오버라이드로 빠르게 API를 검증하는 방법을 다룹니다.',
+        href: '/backend/fastapi#section6',
+      },
+    ],
+  },
 ]
 
 // ─── Component ─────────────────────────────────────
@@ -80,9 +114,9 @@ export default function BackendPage() {
       badgeIcon={<Server size={14} />}
       badgeAccent="var(--color-success)"
       title="Backend 개발"
-      description="HTTP/REST API 설계 원칙부터 Spring Boot 실무 패턴, JPA 데이터 접근, 테스팅 전략까지 — 백엔드 개발의 핵심을 체계적으로 정리합니다."
-      lastUpdated="2026.05.22"
-      readTime="12 min"
+      description="HTTP/REST API 설계 원칙부터 Spring Boot 실무 패턴, JPA 데이터 접근, 그리고 Python·FastAPI 기반 비동기 API까지 — 백엔드 개발의 핵심을 체계적으로 정리합니다."
+      lastUpdated="2026.05.28"
+      readTime="16 min"
       sections={sections}
       quickLinksTitle="Quick Links"
       quickLinksIcon={<Server size={16} color="var(--color-primary)" />}
@@ -91,7 +125,8 @@ export default function BackendPage() {
         { label: 'Spring Boot 공식 문서', href: 'https://docs.spring.io/spring-boot/docs/current/reference/html/' },
         { label: 'Spring Data JPA 레퍼런스', href: 'https://docs.spring.io/spring-data/jpa/reference/' },
         { label: 'RFC 7807 Problem Details', href: 'https://www.rfc-editor.org/rfc/rfc7807' },
-        { label: 'Testcontainers 공식 문서', href: 'https://testcontainers.com/guides/testing-spring-boot-rest-api-using-testcontainers/' },
+        { label: 'FastAPI 공식 문서', href: 'https://fastapi.tiangolo.com/' },
+        { label: 'Pydantic 공식 문서', href: 'https://docs.pydantic.dev/latest/' },
       ]}
       previous={{ href: '/frontend', label: 'Frontend 개발' }}
       next={{ href: '/devops', label: 'DevOps & Infra' }}
