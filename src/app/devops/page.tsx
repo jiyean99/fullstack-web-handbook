@@ -21,6 +21,11 @@ const sections = [
         desc: '패키징, 이식성, CI/CD, Kubernetes까지.',
         href: '/devops/container',
       },
+      {
+        name: 'CI/CD 파이프라인',
+        desc: 'GitHub Actions로 빌드·테스트·배포를 자동화하는 워크플로우 설계.',
+        href: '/devops/cicd',
+      },
     ],
   },
 ]

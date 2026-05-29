@@ -4,6 +4,7 @@ const meta = {
   network: '네트워크 기초',
   git: 'Git 핸드북',
   container: '컨테이너와 클라우드 네이티브',
+  cicd: 'CI/CD 파이프라인',
 }
 
 export default meta
