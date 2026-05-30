@@ -26,6 +26,11 @@ const sections = [
         desc: 'GitHub Actions로 빌드·테스트·배포를 자동화하는 워크플로우 설계.',
         href: '/devops/cicd',
       },
+      {
+        name: 'AWS 인프라 기초',
+        desc: 'EC2·S3·RDS·VPC·IAM 등 핵심 서비스와 배포 흐름.',
+        href: '/devops/aws',
+      },
     ],
   },
 ]
@@ -38,8 +43,8 @@ export default function DevOpsPage() {
       badgeAccent="var(--color-docker-blue)"
       title="DevOps & 인프라"
       description="Docker 컨테이너화부터 CI/CD 자동화, AWS 클라우드 인프라까지 — 실무 배포 파이프라인 구축에 필요한 핵심 개념과 실전 패턴을 다룹니다."
-      lastUpdated="2026.03.10"
-      readTime="15 min"
+      lastUpdated="2026.05.30"
+      readTime="20 min"
       sections={sections}
       quickLinksTitle="Quick Links"
       quickLinksIcon={<DiDocker size={18} color="var(--color-docker-blue)" />}
