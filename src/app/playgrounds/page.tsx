@@ -1,45 +1,26 @@
 import type { Metadata } from 'next'
-import { Gamepad2, Palette, RefreshCw } from 'lucide-react'
+import { Gamepad2 } from 'lucide-react'
 import SectionDetailLayout from '@/components/layout/SectionDetailLayout'
 
 export const metadata: Metadata = { title: 'Playgrounds' }
 
 const sections = [
   {
-    id: 'state-demo',
-    title: '상태관리 데모',
-    icon: <RefreshCw />,
+    id: 'demos',
+    title: 'Playground 데모',
+    icon: <Gamepad2 />,
     color: 'var(--color-primary)',
-    summary: 'Zustand로 구현한 상태관리 실습',
+    summary: '직접 조작하며 개념을 체험하는 인터랙티브 데모 모음',
     items: [
       {
-        name: '카운터 & 폼 상태',
-        desc: '간단한 카운터와 폼 상태를 통해 Zustand의 기본 사용법을 익힙니다.',
-        href: '/playgrounds/state#section1',
+        name: '상태관리 Playground',
+        desc: 'Zustand 카운터·폼·파생 상태·persist·비동기 액션과 셀렉터 최적화를 직접 조작하며 익힙니다.',
+        href: '/playgrounds/state',
       },
       {
-        name: '스토어 구조',
-        desc: 'store 설계와 action 정의, 셀렉터 기반 구독 예시를 다룹니다.',
-        href: '/playgrounds/state#section4',
-      },
-    ],
-  },
-  {
-    id: 'design-system-demo',
-    title: '디자인 시스템 쇼케이스',
-    icon: <Palette />,
-    color: 'var(--color-docker-network)',
-    summary: '색상 팔레트와 타이포그래피, 버튼 컴포넌트 데모',
-    items: [
-      {
-        name: '컬러 & 타이포그래피',
-        desc: '디자인 토큰을 기반으로 한 색상 팔레트와 텍스트 스타일을 확인합니다.',
-        href: '/playgrounds/design-system#section1',
-      },
-      {
-        name: 'Button 컴포넌트',
-        desc: '다양한 변형과 상태를 가진 버튼 컴포넌트를 인터랙티브 빌더로 조합해 봅니다.',
-        href: '/playgrounds/design-system#section3',
+        name: '디자인 시스템 Playground',
+        desc: '컬러·간격·타이포그래피 토큰과 Button 컴포넌트의 변형을 인터랙티브 빌더로 조합해 봅니다.',
+        href: '/playgrounds/design-system',
       },
     ],
   },

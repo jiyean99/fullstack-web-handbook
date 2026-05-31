@@ -1,81 +1,31 @@
 import type { Metadata } from 'next'
-import { Layout, Palette } from 'lucide-react'
-import { RiReactjsLine } from 'react-icons/ri'
-import { SiTypescript } from 'react-icons/si'
+import { Layout } from 'lucide-react'
 import SectionDetailLayout from '@/components/layout/SectionDetailLayout'
 
 export const metadata: Metadata = { title: 'Frontend' }
 
 const sections = [
   {
-    id: 'react',
-    title: 'React',
-    icon: <RiReactjsLine />,
+    id: 'articles',
+    title: 'Frontend 아티클',
+    icon: <Layout />,
     color: 'var(--color-primary)',
-    summary: '상태관리, 성능 최적화, 훅 패턴 등 React 핵심 실무 패턴',
+    summary: 'React · TypeScript · Styling 핵심 주제별 글 모음',
     items: [
       {
-        name: '상태관리 전략',
-        desc: 'Zustand, TanStack Query를 활용한 전역 상태와 서버 상태 관리 전략을 정리합니다.',
-        href: '/frontend/react#section1',
+        name: 'React 핵심 패턴',
+        desc: '클라이언트·서버 상태 구분부터 Zustand·TanStack Query, 렌더링 최적화, 컴포넌트 설계까지 React 실무 패턴을 다룹니다.',
+        href: '/frontend/react',
       },
       {
-        name: '성능 최적화',
-        desc: 'memo, useMemo, Suspense 등을 이용해 불필요한 렌더링을 줄이는 방법을 다룹니다.',
-        href: '/frontend/react#section4',
+        name: 'TypeScript 실무 타입',
+        desc: '유틸리티 타입과 판별 유니온, 도메인 타입 모델링, infer, Zod 런타임 검증까지 타입 전략을 정리합니다.',
+        href: '/frontend/typescript',
       },
       {
-        name: '컴포넌트 설계',
-        desc: 'Container / Presentational 패턴과 훅 추출 기준 등 재사용 가능한 컴포넌트 구조를 설명합니다.',
-        href: '/frontend/react#section5',
-      },
-    ],
-  },
-  {
-    id: 'typescript',
-    title: 'TypeScript',
-    icon: <SiTypescript />,
-    color: '#3178c6',
-    summary: '고급 타입 시스템과 유틸리티 타입, 런타임 검증 패턴',
-    items: [
-      {
-        name: '타입 패턴',
-        desc: 'Partial, Omit, infer, Discriminated Union 등 실무에서 자주 쓰는 타입 패턴을 정리합니다.',
-        href: '/frontend/typescript#section1',
-      },
-      {
-        name: '도메인 타입 모델링',
-        desc: '도메인 규칙을 타입에 녹이는 방법과 유효성 검사를 조합하는 전략을 다룹니다.',
-        href: '/frontend/typescript#section3',
-      },
-      {
-        name: '런타임 타입 검증',
-        desc: 'Zod를 활용해 API 응답과 폼 입력을 안전하게 검증하는 방법을 설명합니다.',
-        href: '/frontend/typescript#section5',
-      },
-    ],
-  },
-  {
-    id: 'styling',
-    title: 'Styling',
-    icon: <Palette />,
-    color: 'var(--color-docker-network)',
-    summary: 'CSS-in-JS 패턴과 디자인 토큰, CSS 아키텍처 전략',
-    items: [
-      {
-        name: 'styled-components 패턴',
-        desc: 'Theme Provider와 디자인 토큰을 활용해 일관된 스타일 시스템을 구성하는 방법을 다룹니다.',
-        href: '/frontend/styling#section1',
-      },
-      {
-        name: 'CSS 아키텍처',
-        desc: '레이어 구조, 유틸리티 클래스, 컴포넌트 기반 스타일링 전략을 정리합니다.',
-        href: '/frontend/styling#section4',
-      },
-      {
-        name: '다크 모드',
-        desc: 'CSS 변수와 전역 테마 전환으로 다크/라이트 모드를 구현하는 패턴을 설명합니다.',
-        href: '/frontend/styling#section3',
+        name: 'Styling 전략',
+        desc: 'styled-components와 디자인 토큰, 다크 모드, CSS 아키텍처와 동적 스타일링 패턴을 다룹니다.',
+        href: '/frontend/styling',
       },
     ],
   },
