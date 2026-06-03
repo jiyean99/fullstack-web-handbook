@@ -67,6 +67,9 @@ export default function TopNavbar() {
             <Link href="/architecture" className="fsw-navbar-link">
               Architecture
             </Link>
+            <Link href="/journal" className="fsw-navbar-link">
+              Journal
+            </Link>
           </nav>
         </div>
 

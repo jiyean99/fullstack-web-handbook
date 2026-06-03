@@ -23,6 +23,10 @@ const meta = {
     title: 'Playgrounds',
     type: 'page',
   },
+  journal: {
+    title: '실무 기록',
+    type: 'page',
+  },
   about: {
     title: 'About & Meta',
     type: 'page',

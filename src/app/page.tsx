@@ -11,6 +11,7 @@ import {
   ArrowRight,
   Github,
   Palette,
+  NotebookPen,
 } from 'lucide-react'
 import { DiDocker } from 'react-icons/di'
 
@@ -416,6 +417,15 @@ const sections = [
     description:
       '개념을 직접 체험할 수 있는 상태관리 · 디자인 시스템 데모를 제공합니다.',
     links: ['상태관리 데모', '디자인 시스템 쇼케이스'],
+  },
+  {
+    icon: <NotebookPen />,
+    title: 'Journal',
+    href: '/journal',
+    accent: 'var(--color-info)',
+    description:
+      '실무에서 부딪힌 문제와 해결 과정을 시간순으로 남기는 개발 기록 공간입니다.',
+    links: ['트러블슈팅 기록', '실무 회고'],
   },
   {
     icon: <Info />,
