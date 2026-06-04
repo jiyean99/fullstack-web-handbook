@@ -12,6 +12,15 @@ export interface JournalEntry {
 
 export const journalEntries: JournalEntry[] = [
   {
+    slug: 'cors-preflight',
+    title: '로컬에선 됐는데 배포하니 CORS — preflight 디버깅기',
+    date: '2026.06.04',
+    category: 'Frontend',
+    tags: ['CORS', 'HTTP', 'preflight'],
+    summary:
+      '프론트에서 API를 호출하자 브라우저가 막아버린 CORS 에러. preflight(OPTIONS)의 동작을 이해하고 서버에서 올바르게 허용한 과정을 정리한다.',
+  },
+  {
     slug: 'n-plus-one',
     title: '목록 API가 갑자기 느려졌다 — N+1 쿼리 추적기',
     date: '2026.06.03',
