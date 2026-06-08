@@ -8,6 +8,7 @@ import {
   AlertTriangle,
   Globe,
   Zap,
+  Sparkles,
 } from 'lucide-react'
 import ContentDoc, {
   Section,
@@ -34,6 +35,7 @@ import ContentDoc, {
 const toc = [
   { id: 'section1', label: '1. 메타프레임워크란 무엇인가' },
   { id: 'section2', label: '2. 렌더링 전략 스펙트럼' },
+  { id: 'section3', label: '3. Astro와 아일랜드 아키텍처' },
 ]
 
 export default function MetaFrameworksPage() {
@@ -244,6 +246,113 @@ export default async function ProductPage({ params }) {
             </SmallText>
           </Card>
         </GridTwo>
+      </Section>
+
+      <Section id="section3">
+        <SectionTitleBlock num="3" title="Astro와 아일랜드 아키텍처" />
+        <Paragraph>
+          Astro는 &lsquo;기본적으로 자바스크립트를 0으로 보낸다&rsquo;는 발상에서 출발한
+          메타프레임워크다. 대부분의 콘텐츠 사이트는 사실 정적 HTML이면 충분한데, SPA 프레임워크는
+          페이지 전체를 자바스크립트로 다시 그리느라(하이드레이션) 불필요한 비용을 치른다. Astro는
+          이 기본값을 뒤집는다.
+        </Paragraph>
+
+        <SectionIntro>
+          아일랜드 아키텍처(islands architecture)는 페이지를 &lsquo;정적인 바다&rsquo;로 보고,
+          상호작용이 필요한 부분만 &lsquo;섬&rsquo;으로 분리해 그 섬에만 자바스크립트를 붙이는
+          방식이다. 검색창·캐러셀·좋아요 버튼만 동적이고 나머지 본문은 순수 HTML로 남는다.
+        </SectionIntro>
+
+        <CodeBlock label="src/pages/index.astro">{`---
+// 이 컴포넌트는 서버(빌드 시점)에서만 실행된다.
+import Header from '../components/Header.astro'   // 정적 HTML로만 출력
+import SearchBox from '../components/SearchBox.jsx' // 상호작용 필요 → 섬
+const posts = await getPosts() // JS 번들에 포함되지 않음
+---
+<Header />
+
+<!-- client:visible: 화면에 보일 때 비로소 하이드레이션 -->
+<SearchBox client:visible />
+
+<ul>
+  {posts.map((p) => <li>{p.title}</li>)}  <!-- 순수 HTML, JS 0 -->
+</ul>`}</CodeBlock>
+
+        <Paragraph>
+          핵심은 <code>client:*</code> 지시어다. 섬마다 &lsquo;언제 하이드레이션할지&rsquo;를
+          따로 정할 수 있어, 자바스크립트를 필요한 만큼만, 필요한 시점에만 로드한다. 이것을
+          부분 하이드레이션(partial hydration) 혹은 선택적 하이드레이션이라 부른다.
+        </Paragraph>
+
+        <TableWrapper>
+          <Table>
+            <thead>
+              <tr>
+                <Th>지시어</Th>
+                <Th>하이드레이션 시점</Th>
+                <Th>쓰임새</Th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <Td $muted>client:load</Td>
+                <Td>페이지 로드 즉시</Td>
+                <Td>처음부터 바로 반응해야 하는 핵심 위젯</Td>
+              </tr>
+              <tr>
+                <Td $muted>client:idle</Td>
+                <Td>브라우저가 한가할 때</Td>
+                <Td>당장 급하지 않은 보조 상호작용</Td>
+              </tr>
+              <tr>
+                <Td $muted>client:visible</Td>
+                <Td>뷰포트에 들어올 때</Td>
+                <Td>스크롤해야 보이는 하단 컴포넌트</Td>
+              </tr>
+              <tr>
+                <Td $muted>client:only</Td>
+                <Td>서버 렌더 생략, 클라이언트만</Td>
+                <Td>브라우저 API에 의존해 SSR이 불가능한 위젯</Td>
+              </tr>
+            </tbody>
+          </Table>
+        </TableWrapper>
+
+        <GridTwo>
+          <Card>
+            <CardTitle>
+              <Sparkles size={20} color="var(--color-success)" /> 프레임워크 중립
+            </CardTitle>
+            <CardText>
+              한 페이지 안에서 React 섬과 Svelte 섬, Vue 섬을 함께 쓸 수 있다. Astro 자체는
+              UI 라이브러리에 묶이지 않고, 각 섬이 자기 런타임만 들고 온다.
+            </CardText>
+          </Card>
+          <Card>
+            <CardTitle>
+              <AlertTriangle size={20} color="var(--color-warning)" /> 섬 사이의 단절
+            </CardTitle>
+            <CardText>
+              섬들은 서로 독립적이라 전역 상태를 공유하기 까다롭다. 화면 전체가 하나의 거대한
+              상호작용 앱(대시보드 등)이라면 아일랜드 모델보다 SPA형 프레임워크가 더 맞는다.
+            </CardText>
+          </Card>
+        </GridTwo>
+
+        <Card
+          style={{
+            background: 'color-mix(in srgb, var(--color-primary-light) 12%, var(--color-bg))',
+          }}
+        >
+          <CardTitle>
+            <Boxes size={18} color="var(--color-primary)" /> 왜 빠른가
+          </CardTitle>
+          <CardText>
+            보내는 자바스크립트의 양 자체가 적기 때문이다. 하이드레이션 비용은 결국 다운로드하고
+            파싱·실행해야 할 JS의 양에 비례한다. 섬만 하이드레이션하면 그 비용이 페이지 전체가
+            아니라 섬의 크기로 줄어든다.
+          </CardText>
+        </Card>
       </Section>
     </ContentDoc>
   )
