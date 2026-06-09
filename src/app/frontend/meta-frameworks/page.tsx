@@ -9,6 +9,8 @@ import {
   Globe,
   Zap,
   Sparkles,
+  FileText,
+  ShieldCheck,
 } from 'lucide-react'
 import ContentDoc, {
   Section,
@@ -36,6 +38,7 @@ const toc = [
   { id: 'section1', label: '1. 메타프레임워크란 무엇인가' },
   { id: 'section2', label: '2. 렌더링 전략 스펙트럼' },
   { id: 'section3', label: '3. Astro와 아일랜드 아키텍처' },
+  { id: 'section4', label: '4. 콘텐츠 중심 워크플로우' },
 ]
 
 export default function MetaFrameworksPage() {
@@ -353,6 +356,86 @@ const posts = await getPosts() // JS 번들에 포함되지 않음
             아니라 섬의 크기로 줄어든다.
           </CardText>
         </Card>
+      </Section>
+
+      <Section id="section4">
+        <SectionTitleBlock num="4" title="콘텐츠 중심 워크플로우" />
+        <Paragraph>
+          블로그·문서·포트폴리오처럼 &lsquo;글이 주인공&rsquo;인 사이트에서는 렌더링 전략만큼이나
+          콘텐츠를 어떻게 관리하느냐가 중요하다. 메타프레임워크는 Markdown/MDX 파일을 데이터처럼
+          다루는 워크플로우를 기본 제공해, 별도 CMS 없이도 글을 타입 안전하게 관리하게 해 준다.
+        </Paragraph>
+
+        <SectionIntro>
+          Astro의 Content Collections가 대표적이다. 콘텐츠 폴더에 스키마를 선언해 두면, 각
+          글의 프런트매터(frontmatter)가 빌드 때 검증되고, 본문을 불러올 때 타입이 따라온다.
+          오타 난 필드나 빠뜨린 날짜는 빌드 단계에서 걸러진다.
+        </SectionIntro>
+
+        <CodeBlock label="src/content/config.ts (Astro Content Collections)">{`import { defineCollection, z } from 'astro:content'
+
+const blog = defineCollection({
+  type: 'content',
+  // 프런트매터 스키마를 Zod로 선언 → 빌드 시 검증
+  schema: z.object({
+    title: z.string(),
+    publishedAt: z.coerce.date(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+})
+
+export const collections = { blog }`}</CodeBlock>
+
+        <CodeBlock label="src/pages/blog/index.astro">{`---
+import { getCollection } from 'astro:content'
+
+// entry.data는 위 스키마 타입을 그대로 따른다 (자동완성·타입체크)
+const posts = (await getCollection('blog'))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => +b.data.publishedAt - +a.data.publishedAt)
+---
+<ul>
+  {posts.map((post) => (
+    <li><a href={\`/blog/\${post.slug}\`}>{post.data.title}</a></li>
+  ))}
+</ul>`}</CodeBlock>
+
+        <GridTwo>
+          <Card>
+            <CardTitle>
+              <FileText size={20} color="var(--color-primary)" /> 파일이 곧 데이터베이스
+            </CardTitle>
+            <CardText>
+              글은 Git에 함께 버전 관리되는 Markdown 파일이다. 별도 DB·관리자 화면 없이도 PR로
+              글을 리뷰하고, 롤백하고, 배포 파이프라인에 그대로 태울 수 있다.
+            </CardText>
+          </Card>
+          <Card>
+            <CardTitle>
+              <ShieldCheck size={20} color="var(--color-success)" /> 빌드 타임 검증
+            </CardTitle>
+            <CardText>
+              스키마 덕분에 &lsquo;발행일 빠진 글&rsquo;, &lsquo;태그 오타&rsquo; 같은 실수가
+              런타임이 아니라 빌드에서 드러난다. 깨진 콘텐츠가 배포되는 일을 원천 차단한다.
+            </CardText>
+          </Card>
+        </GridTwo>
+
+        <BulletList>
+          <Bullet>
+            <strong>MDX</strong>: Markdown 안에서 컴포넌트를 직접 쓸 수 있어, 글 속에 인터랙티브
+            데모(섬)를 섞기 좋다. 이 핸드북도 같은 발상으로 콘텐츠와 컴포넌트를 함께 둔다.
+          </Bullet>
+          <Bullet>
+            <strong>정적 생성과의 궁합</strong>: 콘텐츠가 파일이므로 빌드 때 전부 SSG로 굳혀
+            CDN에 올리기 자연스럽다. 글이 늘어도 서버 비용은 늘지 않는다.
+          </Bullet>
+          <Bullet>
+            <strong>헤드리스 CMS와의 경계</strong>: 비개발자가 자주 글을 올려야 한다면 파일
+            기반보다 헤드리스 CMS(Contentful·Sanity 등)를 데이터 소스로 두는 편이 낫다.
+          </Bullet>
+        </BulletList>
       </Section>
     </ContentDoc>
   )
