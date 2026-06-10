@@ -380,7 +380,7 @@ const sections = [
     accent: 'var(--color-primary)',
     description:
       'React, TypeScript, Styling 등 프론트엔드 개발의 핵심 개념과 실무 패턴을 정리합니다.',
-    links: ['React & 상태관리', 'TypeScript 패턴', 'styled-components'],
+    links: ['React & 상태관리', 'TypeScript 패턴', '메타프레임워크 · Astro'],
   },
   {
     icon: <Server />,

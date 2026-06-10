@@ -32,6 +32,7 @@ import ContentDoc, {
   Th,
   Td,
   CodeBlock,
+  HeaderQuote,
 } from '@/components/content/ContentDoc'
 
 const toc = [
@@ -39,6 +40,7 @@ const toc = [
   { id: 'section2', label: '2. 렌더링 전략 스펙트럼' },
   { id: 'section3', label: '3. Astro와 아일랜드 아키텍처' },
   { id: 'section4', label: '4. 콘텐츠 중심 워크플로우' },
+  { id: 'section5', label: '5. 프레임워크 선택 가이드' },
 ]
 
 export default function MetaFrameworksPage() {
@@ -437,6 +439,98 @@ const posts = (await getCollection('blog'))
           </Bullet>
         </BulletList>
       </Section>
+
+      <Section id="section5">
+        <SectionTitleBlock num="5" title="프레임워크 선택 가이드" />
+        <Paragraph>
+          &lsquo;무엇이 제일 좋은가&rsquo;라는 질문은 답이 없다. 메타프레임워크는 각자 가정하는
+          &lsquo;전형적인 앱의 모양&rsquo;이 다르기 때문이다. 만들려는 것이 콘텐츠 사이트인지,
+          상호작용이 많은 앱인지, 데이터 변경이 잦은 트랜잭션 서비스인지에 따라 정답이 바뀐다.
+        </Paragraph>
+
+        <SectionIntro>
+          축은 하나면 충분하다. &lsquo;자바스크립트가 얼마나 많이 필요한 앱인가&rsquo;. 정적
+          콘텐츠가 대부분이면 Astro 쪽으로, 화면 전체가 살아 있는 앱이면 Next/Remix 쪽으로
+          기운다.
+        </SectionIntro>
+
+        <TableWrapper>
+          <Table>
+            <thead>
+              <tr>
+                <Th>프레임워크</Th>
+                <Th>강점이 드러나는 곳</Th>
+                <Th>기본 사고방식</Th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <Td $muted>Astro</Td>
+                <Td>블로그·문서·마케팅·랜딩 등 콘텐츠 중심</Td>
+                <Td>정적이 기본, 상호작용은 섬으로 추가</Td>
+              </tr>
+              <tr>
+                <Td $muted>Next.js</Td>
+                <Td>대시보드·커머스 등 기능 많은 풀스택 앱</Td>
+                <Td>서버 컴포넌트 기반, 렌더링 전략 자유 혼합</Td>
+              </tr>
+              <tr>
+                <Td $muted>Remix</Td>
+                <Td>폼·데이터 변경이 잦은 웹 표준 중심 앱</Td>
+                <Td>loader/action으로 요청-응답에 충실</Td>
+              </tr>
+              <tr>
+                <Td $muted>SvelteKit / Nuxt</Td>
+                <Td>Svelte·Vue 생태계를 쓰는 풀스택 앱</Td>
+                <Td>각 UI 프레임워크의 공식 메타프레임워크</Td>
+              </tr>
+            </tbody>
+          </Table>
+        </TableWrapper>
+
+        <Stack>
+          <Card>
+            <CardTitle>
+              <CheckCircle size={20} color="var(--color-success)" /> Astro가 맞는 신호
+            </CardTitle>
+            <CardText>
+              페이지의 90%가 읽기 전용 콘텐츠이고, 상호작용은 검색·필터·댓글처럼 군데군데
+              박혀 있다. 첫 화면 속도와 SEO가 핵심 지표다. 보내는 JS를 최소로 줄이고 싶다.
+            </CardText>
+          </Card>
+          <Card>
+            <CardTitle>
+              <Zap size={20} color="var(--color-primary)" /> Next/Remix가 맞는 신호
+            </CardTitle>
+            <CardText>
+              로그인 이후 화면 전체가 상호작용하는 앱이다. 라우트마다 데이터를 읽고 쓰며,
+              전역 상태·실시간성·복잡한 폼이 많다. 정적 페이지는 오히려 일부에 불과하다.
+            </CardText>
+          </Card>
+        </Stack>
+
+        <Card
+          style={{
+            background: 'color-mix(in srgb, var(--color-primary-light) 12%, var(--color-bg))',
+          }}
+        >
+          <CardTitle>
+            <Layers size={18} color="var(--color-primary)" /> 경계는 점점 흐려진다
+          </CardTitle>
+          <CardText>
+            Astro도 SSR과 서버 액션을 지원하고, Next도 부분 사전 렌더링(PPR)으로 아일랜드에
+            가까워지고 있다. 결국 모든 프레임워크가 &lsquo;정적인 부분은 싸게, 동적인 부분만
+            비싸게&rsquo;라는 같은 목표로 수렴 중이다. 도구 이름보다 렌더링 전략의 원리를
+            이해하는 편이 오래 간다.
+          </CardText>
+        </Card>
+      </Section>
+
+      <HeaderQuote>
+        메타프레임워크 선택은 취향이 아니라 &lsquo;앱의 모양&rsquo;에 대한 판단이다.
+        <br />
+        <strong>정적으로 낼 수 있는 건 정적으로, 동적인 부분만 골라 비용을 치러라.</strong>
+      </HeaderQuote>
     </ContentDoc>
   )
 }
