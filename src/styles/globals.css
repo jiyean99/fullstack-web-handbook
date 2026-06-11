@@ -334,6 +334,114 @@ header.nextra-navbar,
   background: var(--color-bg);
 }
 
+.fsw-navbar-search-input:focus {
+  width: 18rem;
+}
+
+/* ─── Search results dropdown ─────────────────────── */
+.fsw-search-results {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: min(26rem, calc(100vw - 2rem));
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 0.4rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+  z-index: 60;
+}
+
+.fsw-search-empty {
+  padding: 1.1rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.fsw-search-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: none;
+  border-radius: 0.6rem;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.fsw-search-item-active {
+  background: color-mix(in srgb, var(--color-primary-light) 45%, var(--color-bg));
+}
+
+.fsw-search-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.fsw-search-item-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.fsw-search-item-desc {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fsw-search-item-section {
+  flex-shrink: 0;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-bg));
+  color: var(--color-primary);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.fsw-search-footer {
+  display: flex;
+  gap: 1rem;
+  padding: 0.55rem 0.7rem 0.3rem;
+  margin-top: 0.3rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.fsw-search-footer span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.fsw-search-footer kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  padding: 0 0.3rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  background: var(--color-surface);
+  font-size: 0.68rem;
+  font-family: inherit;
+  line-height: 1;
+}
+
 .fsw-navbar-icon-btn {
   display: inline-flex;
   align-items: center;
