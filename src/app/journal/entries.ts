@@ -12,6 +12,15 @@ export interface JournalEntry {
 
 export const journalEntries: JournalEntry[] = [
   {
+    slug: 'docker-image-slim',
+    title: '1.2GB 이미지를 180MB로 — Docker 다이어트 기록',
+    date: '2026.06.05',
+    category: 'DevOps',
+    tags: ['Docker', '멀티스테이지', '최적화'],
+    summary:
+      '배포 이미지가 1GB를 넘어 빌드·푸시가 느려진 문제를, 멀티스테이지 빌드와 레이어 캐싱·경량 베이스로 줄인 과정을 정리한다.',
+  },
+  {
     slug: 'cors-preflight',
     title: '로컬에선 됐는데 배포하니 CORS — preflight 디버깅기',
     date: '2026.06.04',
