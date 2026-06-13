@@ -12,6 +12,15 @@ export interface JournalEntry {
 
 export const journalEntries: JournalEntry[] = [
   {
+    slug: 'client-side-search',
+    title: '엘라스틱서치 없이 — 검색을 프론트에서 직접 만든 기록',
+    date: '2026.06.11',
+    category: 'Frontend',
+    tags: ['검색', '적정기술', '클라이언트'],
+    summary:
+      '장식이던 상단 검색바를 동작하게 만들면서, 엘라스틱서치 같은 엔진 대신 정적 인덱스와 클라이언트 선형 검색을 택한 이유와 그 한계를 정리한다.',
+  },
+  {
     slug: 'docker-image-slim',
     title: '1.2GB 이미지를 180MB로 — Docker 다이어트 기록',
     date: '2026.06.05',
