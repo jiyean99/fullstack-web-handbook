@@ -63,8 +63,15 @@ const pages: SearchDoc[] = [
     title: 'Backend 개발',
     href: '/backend',
     section: 'Backend',
-    description: 'HTTP/REST 설계부터 Spring Boot, FastAPI까지 백엔드 핵심',
-    keywords: '백엔드 backend',
+    description: '기본→심화→실무 경로로 정리한 백엔드 학습 커리큘럼',
+    keywords: '백엔드 backend 기본 심화 실무 커리큘럼',
+  },
+  {
+    title: '백엔드 동작 원리',
+    href: '/backend/fundamentals',
+    section: 'Backend',
+    description: '요청 처리 흐름, 웹서버와 WAS, 계층 구조, 무상태성, 스레드·커넥션 풀',
+    keywords: '백엔드 기본 fundamentals 요청 처리 was 웹서버 계층 stateless 무상태 스레드 커넥션풀 수평확장',
   },
   {
     title: 'HTTP / REST API 설계',
