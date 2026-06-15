@@ -39,6 +39,11 @@ const sections = [
         desc: '레이어드 아키텍처, 의존성 주입, 트랜잭션 관리, JPA 데이터 접근, 계층별 테스팅 전략을 다룹니다.',
         href: '/backend/spring-boot',
       },
+      {
+        name: '데이터베이스와 트랜잭션 심화',
+        desc: 'ACID와 트랜잭션 경계, 격리 수준과 이상 현상, 낙관적·비관적 락, 인덱스와 실행 계획, N+1 쿼리까지 데이터 계층을 깊게 다룹니다.',
+        href: '/backend/database-transactions',
+      },
     ],
   },
   {

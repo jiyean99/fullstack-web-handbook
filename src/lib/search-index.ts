@@ -88,6 +88,13 @@ const pages: SearchDoc[] = [
     keywords: 'spring boot 스프링 jpa di 트랜잭션 transaction 테스트',
   },
   {
+    title: '데이터베이스와 트랜잭션 심화',
+    href: '/backend/database-transactions',
+    section: 'Backend',
+    description: 'ACID, 격리 수준, 낙관적·비관적 락, 인덱스와 실행 계획, N+1 쿼리',
+    keywords: 'database db 데이터베이스 트랜잭션 transaction acid 격리수준 isolation 락 lock 인덱스 index n+1 실행계획 explain 동시성',
+  },
+  {
     title: 'Python & FastAPI',
     href: '/backend/fastapi',
     section: 'Backend',
