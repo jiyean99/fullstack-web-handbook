@@ -58,6 +58,11 @@ const sections = [
         desc: '타입 힌트 기반 경로 동작과 Pydantic 검증, Depends 주입, async 설계, TestClient 테스트까지 비동기 API 패턴을 정리합니다.',
         href: '/backend/fastapi',
       },
+      {
+        name: '인증·인가와 API 보안',
+        desc: '인증과 인가의 차이, 세션과 JWT, JWT의 구조와 함정, RBAC 인가 모델, OWASP 기반 흔한 취약점 방어까지 만든 API를 지키는 법을 정리합니다.',
+        href: '/backend/auth-security',
+      },
     ],
   },
 ]
@@ -71,8 +76,8 @@ export default function BackendPage() {
       badgeAccent="var(--color-success)"
       title="Backend 개발"
       description="백엔드를 '기본 → 심화 → 실무' 학습 경로로 정리합니다. 요청 처리의 원리와 API 설계 기본을 세운 뒤, 프레임워크와 데이터 계층을 깊게 다루고, 비동기 API와 보안 같은 현장 주제로 이어집니다."
-      lastUpdated="2026.06.14"
-      readTime="16 min"
+      lastUpdated="2026.06.16"
+      readTime="24 min"
       sections={sections}
       quickLinksTitle="Quick Links"
       quickLinksIcon={<Server size={16} color="var(--color-primary)" />}

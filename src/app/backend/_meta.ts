@@ -5,6 +5,7 @@ const meta = {
   'spring-boot': 'Spring Boot 실무 패턴',
   'database-transactions': '데이터베이스와 트랜잭션 심화',
   fastapi: 'Python & FastAPI',
+  'auth-security': '인증·인가와 API 보안',
 }
 
 export default meta

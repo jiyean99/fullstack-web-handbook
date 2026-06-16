@@ -101,6 +101,13 @@ const pages: SearchDoc[] = [
     description: '타입 힌트, Pydantic 검증, Depends 주입, async, 테스트',
     keywords: 'python fastapi 파이썬 pydantic async depends',
   },
+  {
+    title: '인증·인가와 API 보안',
+    href: '/backend/auth-security',
+    section: 'Backend',
+    description: '인증/인가, 세션과 JWT, RBAC, OWASP 흔한 취약점 방어',
+    keywords: '인증 인가 authentication authorization 보안 security jwt 세션 session rbac oauth owasp cors 토큰 token 인젝션 injection',
+  },
 
   // ─── DevOps ────────────────────────────────
   {
