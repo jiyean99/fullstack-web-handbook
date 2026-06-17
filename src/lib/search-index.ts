@@ -26,8 +26,15 @@ const pages: SearchDoc[] = [
     title: 'Frontend 개발',
     href: '/frontend',
     section: 'Frontend',
-    description: 'React, TypeScript, Styling 등 프론트엔드 핵심 개념과 실무 패턴',
-    keywords: '프론트엔드 frontend',
+    description: '기본→심화→실무 경로로 정리한 프론트엔드 학습 커리큘럼',
+    keywords: '프론트엔드 frontend 기본 심화 실무 커리큘럼',
+  },
+  {
+    title: '브라우저 렌더링 원리',
+    href: '/frontend/browser-rendering',
+    section: 'Frontend',
+    description: 'DOM·CSSOM, 렌더 트리, 임계 렌더링 경로, 리플로우·리페인트, 이벤트 루프, 가상 DOM',
+    keywords: '브라우저 browser 렌더링 rendering dom cssom 렌더트리 레이아웃 layout 페인트 paint 리플로우 reflow 리페인트 repaint 이벤트루프 event loop 가상돔 virtual dom critical rendering path',
   },
   {
     title: 'React 핵심 패턴',
