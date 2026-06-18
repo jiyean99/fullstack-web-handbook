@@ -38,6 +38,11 @@ const sections = [
         desc: '클라이언트·서버 상태 구분부터 Zustand·TanStack Query, 렌더링 최적화, 컴포넌트 설계까지 React 실무 패턴을 다룹니다.',
         href: '/frontend/react',
       },
+      {
+        name: '프론트엔드 성능 최적화',
+        desc: 'Core Web Vitals 측정부터 불필요한 리렌더 줄이기, 번들·코드 스플리팅, 이미지·폰트, 네트워크·캐싱까지 성능 병목을 다스리는 법을 정리합니다.',
+        href: '/frontend/performance',
+      },
     ],
   },
   {
@@ -69,7 +74,7 @@ export default function FrontendPage() {
       badgeAccent="var(--color-primary)"
       title="Frontend 개발"
       description="프론트엔드를 '기본 → 심화 → 실무' 학습 경로로 정리합니다. 브라우저 동작 원리와 타입 기반 언어로 토대를 세운 뒤, React와 성능을 깊게 다루고, 스타일링·렌더링 전략·접근성 같은 현장 주제로 이어집니다."
-      lastUpdated="2026.06.17"
+      lastUpdated="2026.06.18"
       readTime="14 min"
       sections={sections}
       quickLinksTitle="Quick Links"

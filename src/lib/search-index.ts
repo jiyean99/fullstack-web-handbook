@@ -44,6 +44,13 @@ const pages: SearchDoc[] = [
     keywords: 'react 리액트 상태관리 zustand tanstack query 렌더링 최적화 메모이제이션',
   },
   {
+    title: '프론트엔드 성능 최적화',
+    href: '/frontend/performance',
+    section: 'Frontend',
+    description: 'Core Web Vitals, 리렌더 줄이기, 코드 스플리팅, 이미지·폰트, 캐싱',
+    keywords: '성능 performance 최적화 optimization core web vitals lcp cls inp 리렌더 rerender memo 번들 bundle 코드스플리팅 code splitting lazy 이미지 폰트 캐싱 cache prefetch',
+  },
+  {
     title: 'TypeScript 실무 타입',
     href: '/frontend/typescript',
     section: 'Frontend',
