@@ -6,6 +6,7 @@ const meta = {
   performance: '프론트엔드 성능 최적화',
   styling: 'Styling 전략',
   'meta-frameworks': '메타프레임워크와 렌더링 전략',
+  accessibility: '웹 접근성과 시맨틱 마크업',
 }
 
 export default meta

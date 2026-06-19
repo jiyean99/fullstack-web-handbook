@@ -62,6 +62,11 @@ const sections = [
         desc: 'Astro·Next·Remix가 푸는 문제와 CSR/SSR/SSG/ISR, 아일랜드 아키텍처, 콘텐츠 중심 워크플로우, 프레임워크 선택 기준을 정리합니다.',
         href: '/frontend/meta-frameworks',
       },
+      {
+        name: '웹 접근성과 시맨틱 마크업',
+        desc: '시맨틱 HTML과 랜드마크, 키보드 접근성과 포커스 관리, 꼭 필요할 때만 쓰는 ARIA, 접근 가능한 폼까지 모두가 쓸 수 있는 UI를 만드는 법을 정리합니다.',
+        href: '/frontend/accessibility',
+      },
     ],
   },
 ]
@@ -74,8 +79,8 @@ export default function FrontendPage() {
       badgeAccent="var(--color-primary)"
       title="Frontend 개발"
       description="프론트엔드를 '기본 → 심화 → 실무' 학습 경로로 정리합니다. 브라우저 동작 원리와 타입 기반 언어로 토대를 세운 뒤, React와 성능을 깊게 다루고, 스타일링·렌더링 전략·접근성 같은 현장 주제로 이어집니다."
-      lastUpdated="2026.06.18"
-      readTime="14 min"
+      lastUpdated="2026.06.19"
+      readTime="22 min"
       sections={sections}
       quickLinksTitle="Quick Links"
       quickLinksIcon={<Layout size={16} color="var(--color-primary)" />}
@@ -86,6 +91,7 @@ export default function FrontendPage() {
         { label: 'Zustand 공식 문서', href: 'https://docs.pmnd.rs/zustand/getting-started/introduction' },
         { label: 'TanStack Query 공식 문서', href: 'https://tanstack.com/query/latest/docs/framework/react/overview' },
         { label: 'Astro 공식 문서', href: 'https://docs.astro.build' },
+        { label: 'WAI-ARIA Authoring Practices', href: 'https://www.w3.org/WAI/ARIA/apg/' },
       ]}
       previous={undefined}
       next={{ href: '/backend', label: 'Backend 개발' }}

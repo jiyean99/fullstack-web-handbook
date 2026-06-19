@@ -71,6 +71,13 @@ const pages: SearchDoc[] = [
     description: 'Astro·Next·Remix, CSR/SSR/SSG/ISR, 아일랜드 아키텍처, 콘텐츠 워크플로우',
     keywords: 'astro next remix 메타프레임워크 ssr ssg isr csr island 아일랜드 하이드레이션 렌더링',
   },
+  {
+    title: '웹 접근성과 시맨틱 마크업',
+    href: '/frontend/accessibility',
+    section: 'Frontend',
+    description: '시맨틱 HTML, 랜드마크, 키보드 접근성과 포커스, ARIA, 접근 가능한 폼',
+    keywords: '접근성 accessibility a11y 시맨틱 semantic html aria 스크린리더 키보드 keyboard 포커스 focus wcag 폼 form 랜드마크 landmark',
+  },
 
   // ─── Backend ───────────────────────────────
   {
