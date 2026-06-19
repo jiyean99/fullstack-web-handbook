@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ChevronRight, BookOpen, CheckCircle } from 'lucide-react'
 
@@ -22,40 +22,73 @@ const Shell = styled.div`
 const Sidebar = styled.aside`
   width: 100%;
   border-bottom: 1px solid var(--color-border);
-  padding: var(--sp-4);
-  position: sticky;
-  top: 3.5rem;
-  z-index: 10;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--color-bg);
 
   @media (min-width: 768px) {
     width: 260px;
     border-bottom: none;
     height: calc(100vh - 3.5rem);
+    position: sticky;
     top: 3.5rem;
     padding: var(--sp-6);
+    overflow-y: auto;
   }
 `
 
-const SidebarHeader = styled.div`
-  margin-bottom: var(--sp-5);
-  padding-top: var(--sp-2);
+// 모바일에서는 목차 헤더가 토글 버튼이 된다. 데스크톱에서는 일반 제목처럼 보인다.
+const SidebarHeader = styled.button`
+  width: 100%;
+  padding: var(--sp-1) 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  @media (min-width: 768px) {
+    cursor: default;
+    margin-bottom: var(--sp-5);
+    padding-top: var(--sp-2);
+  }
+`
+
+const SidebarHeaderLeft = styled.span`
   display: flex;
   align-items: center;
   gap: 0.5rem;
 `
 
-const SidebarTitle = styled.h2`
+const SidebarTitle = styled.span`
   font-size: 1rem;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 `
 
-const SidebarNav = styled.nav`
-  display: flex;
+const SidebarToggleIcon = styled(ChevronRight)<{ $open: boolean }>`
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--color-text-muted);
+  transition: transform 0.18s ease;
+  transform: rotate(${({ $open }) => ($open ? '90deg' : '0deg')});
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+const SidebarNav = styled.nav<{ $open: boolean }>`
+  display: ${({ $open }) => ($open ? 'flex' : 'none')};
   flex-direction: column;
   gap: 0.25rem;
+  margin-top: var(--sp-3);
+
+  @media (min-width: 768px) {
+    display: flex;
+    margin-top: 0;
+  }
 `
 
 const SidebarButton = styled.button`
@@ -442,22 +475,34 @@ export default function ContentDoc({
   toc,
   children,
 }: ContentDocProps) {
+  // 모바일에서 목차를 접었다 펼치기 위한 상태 (데스크톱에서는 CSS로 항상 펼쳐짐)
+  const [tocOpen, setTocOpen] = useState(false)
+
   const scrollTo = (id: string) => {
     if (typeof document === 'undefined') return
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+    setTocOpen(false)
   }
 
   return (
     <Shell>
       <Sidebar>
-        <SidebarHeader>
-          <BookOpen size={20} color="var(--color-primary)" />
-          <SidebarTitle>목차</SidebarTitle>
+        <SidebarHeader
+          type="button"
+          aria-expanded={tocOpen}
+          aria-controls="fsw-toc-nav"
+          onClick={() => setTocOpen((v) => !v)}
+        >
+          <SidebarHeaderLeft>
+            <BookOpen size={20} color="var(--color-primary)" />
+            <SidebarTitle>목차</SidebarTitle>
+          </SidebarHeaderLeft>
+          <SidebarToggleIcon $open={tocOpen} />
         </SidebarHeader>
-        <SidebarNav>
+        <SidebarNav id="fsw-toc-nav" $open={tocOpen}>
           {toc.map((item) => (
             <SidebarButton key={item.id} type="button" onClick={() => scrollTo(item.id)}>
               {item.label}
