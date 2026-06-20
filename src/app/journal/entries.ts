@@ -12,6 +12,15 @@ export interface JournalEntry {
 
 export const journalEntries: JournalEntry[] = [
   {
+    slug: 'server-actions-hydration',
+    title: 'Next.js 15 Server Actions와 하이드레이션 오류 해결기',
+    date: '2026.06.20',
+    category: 'Frontend',
+    tags: ['Next.js 15', 'Server Actions', 'Hydration', '에러 해결'],
+    summary:
+      'Next.js 15에서 Server Actions를 도입하며 겪은 Hydration Mismatch 에러의 다양한 양상(렌더링 불일치, 무작위 값, 시간 불일치)과 해결 패턴을 정리한다.',
+  },
+  {
     slug: 'client-side-search',
     title: '엘라스틱서치 없이 — 검색을 프론트에서 직접 만든 기록',
     date: '2026.06.11',
