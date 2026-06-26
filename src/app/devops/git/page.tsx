@@ -726,6 +726,7 @@ export default function GitHandbookPage() {
     { id: 'mechanism', label: '메커니즘 이해' },
     { id: 'branch', label: '브랜치 전략' },
     { id: 'pr', label: '협업과 PR' },
+    { id: 'rebase', label: '역사 관리 (Rebase)' },
   ]
 
   const scrollTo = (id: string) => {
@@ -1053,6 +1054,74 @@ export default function GitHandbookPage() {
               </div>
             </Card>
           </div>
+        </Section>
+
+        <Section id="rebase">
+          <SectionTitleBlock num="4" title="대화형 리베이스와 커밋 역사 관리 (git rebase -i & reflog)" />
+          <Paragraph>
+            DevOps 환경이나 깔끔한 메인 히스토리를 유지하기 위해서는 커밋 로그를 깔끔하게 다듬어야 한다. 
+            <code>git rebase -i</code>를 활용하면 작업 중 발생한 지저분한 임시 커밋들을 하나로 합치거나(Squash), 잘못 쓴 메시지를 고칠 수 있다.
+          </Paragraph>
+
+          <GridTwo>
+            <Card>
+              <CardTitle style={{ color: 'var(--color-primary)' }}>주요 Rebase 명령어 옵션</CardTitle>
+              <TableWrapper>
+                <Table>
+                  <thead>
+                    <tr>
+                      <Th style={{ width: '25%' }}>명령어</Th>
+                      <Th>역할</Th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <Td $muted>pick</Td>
+                      <Td>해당 커밋을 그대로 사용</Td>
+                    </tr>
+                    <tr>
+                      <Td $muted>reword</Td>
+                      <Td>커밋 메시지만 수정</Td>
+                    </tr>
+                    <tr>
+                      <Td $muted>squash (s)</Td>
+                      <Td>이전 커밋에 합치고 메시지 결합</Td>
+                    </tr>
+                    <tr>
+                      <Td $muted>drop (d)</Td>
+                      <Td>해당 커밋을 삭제</Td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </TableWrapper>
+            </Card>
+            <Card>
+              <CardTitle style={{ color: 'var(--color-success)' }}>실무 적용 시나리오</CardTitle>
+              <CardText style={{ marginBottom: 'var(--sp-2)' }}>
+                <strong>1. 최근 3개의 커밋 합치기:</strong>
+              </CardText>
+              <CodeBlock>
+                git rebase -i HEAD~3
+              </CodeBlock>
+              <CardText style={{ marginTop: 'var(--sp-3)', marginBottom: 'var(--sp-2)' }}>
+                <strong>2. 유실된 커밋 복구하기:</strong>
+              </CardText>
+              <CodeBlock>
+                git reflog <CodeComment># 지워진 HEAD 히스토리 확인</CodeComment><br/>
+                git reset --hard &lt;commit-hash&gt;
+              </CodeBlock>
+            </Card>
+          </GridTwo>
+
+          <Card style={{ background: 'color-mix(in srgb, var(--color-error) 5%, var(--color-bg))', borderColor: 'var(--color-error)' }}>
+            <CardTitle style={{ color: 'var(--color-error)' }}>
+              ⚠️ Rebase의 골든 룰
+            </CardTitle>
+            <CardText>
+              <strong>이미 원격 저장소(GitHub)에 push되어 팀원들이 공유하고 있는 커밋은 절대 Rebase하지 마라.</strong> 
+              커밋 해시가 새로 생성되어 다른 개발자들의 히스토리와 어긋나며 심각한 충돌(Conflict) 지옥을 유발하게 된다. 오직 로컬(Local) 브랜치에서만 사용하자.
+            </CardText>
+          </Card>
         </Section>
 
         <Footer>
