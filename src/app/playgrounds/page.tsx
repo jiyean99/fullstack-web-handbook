@@ -22,6 +22,11 @@ const sections = [
         desc: '컬러·간격·타이포그래피 토큰과 Button 컴포넌트의 변형을 인터랙티브 빌더로 조합해 봅니다.',
         href: '/playgrounds/design-system',
       },
+      {
+        name: 'React Query & API Mocking Playground',
+        desc: 'TanStack Query의 캐싱 상태(stale, fresh, fetching)와 API 요청 Latency 시뮬레이션을 인터랙티브하게 확인해 봅니다.',
+        href: '/playgrounds/react-query',
+      },
     ],
   },
 ]
