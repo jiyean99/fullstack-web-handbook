@@ -22,6 +22,11 @@ const sections = [
         desc: '전역 예외 핸들러와 도메인별 에러 코드, RFC 7807, Circuit Breaker 상태 전이와 Resilience4j·Fallback 전략을 정리합니다.',
         href: '/architecture/resilience',
       },
+      {
+        name: 'MSA 분산 트랜잭션 패턴',
+        desc: '분산 마이크로서비스 환경에서 최종 일관성을 보장하기 위한 2PC(Two-Phase Commit)의 한계와 Saga 패턴(Choreography/Orchestration), Transactional Outbox 패턴을 정리합니다.',
+        href: '/architecture/msa-transactions',
+      },
     ],
   },
 ]
