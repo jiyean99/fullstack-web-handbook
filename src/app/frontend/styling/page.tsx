@@ -38,6 +38,7 @@ const toc = [
   { id: 'section3', label: '3. 테마와 다크 모드' },
   { id: 'section4', label: '4. CSS 아키텍처 전략' },
   { id: 'section5', label: '5. 동적 스타일링 패턴' },
+  { id: 'section6', label: '6. Next.js App Router와 스타일링 전략' },
 ]
 
 export default function StylingPage() {
@@ -287,6 +288,60 @@ html.dark {
             </SmallText>
           </Card>
         </GridTwo>
+      </Section>
+
+      <Section id="section6">
+        <SectionTitleBlock num="6" title="Next.js App Router와 스타일링 전략 (CSS-in-JS vs CSS-in-CSS)" />
+        <Paragraph>
+          Next.js App Router(13+)는 React Server Components(RSC)를 전면에 내세웠다. 
+          RSC는 서버에서 빌드/렌더링 시점에 해석되어 정적 HTML로 내려가므로, 브라우저 런타임에 동적으로 <code>&lt;style&gt;</code> 태그를 주입하고 파싱하는 
+          전통적인 런타임 CSS-in-JS(styled-components, Emotion 등)와 호환되지 않는다. 
+          따라서 Next.js 15 환경에서는 스타일링 전략을 프로젝트 요구사항에 맞게 명확히 결정해야 한다.
+        </Paragraph>
+
+        <TableWrapper>
+          <Table>
+            <thead>
+              <tr>
+                <Th>구분</Th>
+                <Th>Styled-components (Runtime JS)</Th>
+                <Th>Tailwind CSS (Utility CSS)</Th>
+                <Th>CSS Modules (Standard CSS)</Th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <Td $muted>RSC 지원</Td>
+                <Td $danger>불가능 ('use client' 강제)</Td>
+                <Td $success>완벽 지원 (Zero-runtime)</Td>
+                <Td $success>완벽 지원 (Zero-runtime)</Td>
+              </tr>
+              <tr>
+                <Td $muted>런타임 비용</Td>
+                <Td>JS 파싱 및 스타일 직렬화 비용 있음</Td>
+                <Td $success>제로 (브라우저 스타일 파싱만 수행)</Td>
+                <Td $success>제로 (브라우저 스타일 파싱만 수행)</Td>
+              </tr>
+              <tr>
+                <Td $muted>주요 용도</Td>
+                <Td>복잡한 동적 인터랙션이 핵심인 대시보드</Td>
+                <Td>빠른 개발, 컴포넌트 라이브러리 연동</Td>
+                <Td>전통적인 CSS 작성 방식 유지</Td>
+              </tr>
+            </tbody>
+          </Table>
+        </TableWrapper>
+
+        <Card style={{ background: 'var(--color-surface)' }}>
+          <CardTitle>
+            💡 하이브리드 토큰 설계 (styled-components + Tailwind)
+          </CardTitle>
+          <CardText>
+            두 솔루션을 함께 쓰거나 점진적으로 이관하고 싶다면, 공통 디자인 토큰을 <strong>CSS Custom Properties (CSS 변수)</strong>로 구성하라. 
+            <code>var(--color-primary)</code>처럼 <code>:root</code>에 선언된 CSS 변수를 Tailwind의 테마 확장 설정(tailwind.config.js)과 styled-components의 스타일 선언에서 
+            모두 활용하면 단일 원천(Single Source of Truth)을 손쉽게 구현할 수 있다.
+          </CardText>
+        </Card>
       </Section>
 
       <HeaderQuote>
